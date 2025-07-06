@@ -1,6 +1,7 @@
 "use client";
 
 import Logo from "@/assets/icons/logo.png";
+import { createNewUser } from "@/utils/createNewUser";
 import Image from "next/image";
 import { useEffect } from "react";
 
@@ -33,25 +34,4 @@ export default function LandingPage({ routing }) {
       </div>
     </div>
   );
-}
-
-function createNewUser() {
-  const time = new Date();
-  const userID =
-    "" +
-    time.getFullYear() +
-    time.getMonth() +
-    time.getDate() +
-    time.getHours() +
-    time.getMinutes() +
-    time.getSeconds() +
-    time.getMilliseconds() +
-    Math.floor(Math.random() * 1000);
-
-  localStorage.setItem("USID", userID);
-  localStorage.setItem(
-    "onboardingAnswers",
-    JSON.stringify(["", "", "", "", "", "", ""])
-  );
-  localStorage.setItem("todayMoodAnswers", JSON.stringify(["", ""]));
 }
