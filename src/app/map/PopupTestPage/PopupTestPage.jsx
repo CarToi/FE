@@ -22,10 +22,10 @@ export default function PopupTestPage({ routing }) {
   };
 
   const handleSubmitClick = async () => {
-    const USID = localStorage.getItem("USID") || "";
+    const userId = localStorage.getItem("userId") || "";
 
     const payload = {
-      clientId: USID,
+      clientId: userId,
       satisfactions: satisfactions,
     };
 

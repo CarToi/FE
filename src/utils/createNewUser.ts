@@ -1,6 +1,6 @@
 export function createNewUser() {
   const time = new Date();
-  const userID =
+  const userId =
     "" +
     time.getFullYear() +
     time.getMonth() +
@@ -11,7 +11,7 @@ export function createNewUser() {
     time.getMilliseconds() +
     Math.floor(Math.random() * 1000);
 
-  localStorage.setItem("USID", userID);
+  localStorage.setItem("userId", userId);
   localStorage.setItem("onboardingAnswers", JSON.stringify(Array(7).fill("")));
   localStorage.setItem("todayMoodAnswers", JSON.stringify(Array(2).fill("")));
 }

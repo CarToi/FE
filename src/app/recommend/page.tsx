@@ -12,13 +12,13 @@ export default function RecommendPage() {
 
   useEffect(() => {
     const submitTodayMood = async () => {
-      const USID = localStorage.getItem("USID") || "";
+      const userId = localStorage.getItem("userId") || "";
       const onboarding = JSON.parse(
         localStorage.getItem("onboardingAnswers") ?? "[]"
       );
 
       const payload = {
-        clientId: USID,
+        clientId: userId,
         age: Number(onboarding[0]?.substr(0, 2) || 0),
         gender: onboarding[1],
         resident: onboarding[2],
