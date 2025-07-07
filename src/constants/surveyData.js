@@ -1,4 +1,4 @@
-const questionsData = {
+export const surveyData = {
   onboarding: [
     {
       title: "Q1. 연령대를 알려주세요.",
@@ -55,7 +55,8 @@ const questionsData = {
       ],
     },
   ],
-  today: [
+
+  todayMood: [
     {
       title: "Q1. 오늘도 고생했어요☺️ 지금 기분은 어때요?",
       contents: "지금 기분에 꼭 맞는 무드를 골라볼까요?",
@@ -81,5 +82,3 @@ const questionsData = {
     },
   ],
 };
-
-export default questionsData;

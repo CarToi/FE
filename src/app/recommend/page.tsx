@@ -8,9 +8,10 @@ import Pin from "@/assets/icons/pin.png";
 import Temp from "@/assets/icons/temp.jpg";
 import MapPin from "@/assets/icons/map_pin.png";
 import ChevronLeft from "@/assets/icons/chevron-left.png";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
-import useKakaoLoader from "@/components/UseKakaoLoader.jsx";
+import { useRouter } from "next/navigation";
+import axios from "axios";
 
 const category = {
   TOUR: "여행",
@@ -18,23 +19,51 @@ const category = {
   FESTIVAL: "축제",
 };
 
-export default function RecommendPage({ routing }) {
-  useKakaoLoader();
+export default function RecommendPage() {
+  const router = useRouter();
   const [spaceDatas, setSpaceDatas] = useState([]);
 
   useEffect(() => {
-    setSpaceDatas(JSON.parse(localStorage.getItem("spaceDatas")) || []);
+    const submitTodayMood = async () => {
+      const USID = localStorage.getItem("USID") || "";
+      const onboarding =
+        JSON.parse(localStorage.getItem("onboardingAnswers")) || [];
+
+      const payload = {
+        clientId: USID,
+        age: Number(onboarding[0]?.substr(0, 2) || 0),
+        gender: onboarding[1],
+        resident: onboarding[2],
+        city: onboarding[3],
+        want: onboarding[5],
+        mood: onboarding[6],
+      };
+
+      try {
+        const res = await axios.post(
+          "https://saegil.store/api/survey/recommendation",
+          payload
+        );
+        setSpaceDatas(res.data);
+      } catch (err) {
+        console.error("추천 API 실패:", err);
+        alert("추천 정보를 불러오는 데 실패했어요.");
+      }
+    };
+
+    submitTodayMood();
   }, []);
+
+  const handleLocalStorageClear = () => {
+    localStorage.clear();
+    router.push("/");
+  };
 
   return (
     <div className="bg-[#FFFFFF] h-screen overflow-hidden ">
-      <button
-        onClick={() => {
-          routing("PopupTestPage");
-        }}
-      >
-        만족도 팝업 테스트 화면으로 이동
-      </button>
+      <div className="flex flex-col">
+        <button onClick={handleLocalStorageClear}>로컬 스토리지 비우기</button>
+      </div>
       <div className="flex">
         <div className="flex">
           <SideMenu />

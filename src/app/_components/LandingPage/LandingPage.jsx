@@ -7,16 +7,10 @@ import { useEffect } from "react";
 
 export default function LandingPage({ routing }) {
   useEffect(() => {
-    const userID = localStorage.getItem("USID");
-    const isOnboardingComplete = localStorage.getItem("isOnboardingComplete");
-    if (userID && isOnboardingComplete) {
-      routing("RecommendPage");
-    } else {
-      createNewUser();
-      setTimeout(() => {
-        routing("OnboardingPage");
-      }, 1000);
-    }
+    createNewUser();
+    setTimeout(() => {
+      routing("OnboardingSurvey");
+    }, 1000);
   }, []);
 
   return (
