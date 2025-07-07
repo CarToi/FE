@@ -1,7 +1,7 @@
 import SpaceCard from "./SpaceCard";
 import Image from "next/image";
 import ChevronLeft from "@/assets/icons/chevron-left.png";
-import { RecommendationResponse } from "@/app/lib/type";
+import { RecommendationResponse } from "@/lib/type";
 
 export default function SidePanel({
   spaceData,
