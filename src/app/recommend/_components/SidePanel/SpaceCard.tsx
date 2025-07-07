@@ -1,7 +1,12 @@
 import Image from "next/image";
 import Temp from "@/assets/icons/temp.jpg";
+import { RecommendationResponse } from "@/app/lib/type";
 
-export default function SpaceCard({ spaceData }) {
+export default function SpaceCard({
+  spaceData,
+}: {
+  spaceData: RecommendationResponse;
+}) {
   const city = getCity(spaceData.position);
   return (
     <div className="w-[325px]">
@@ -21,7 +26,7 @@ export default function SpaceCard({ spaceData }) {
 
       <div className="flex gap-[8px] mt-[8px]">
         <div className="px-[12px] py-[4px] bg-[#F7F9FD] rounded-[6px] text-[#3560C0] text-[14px] font-[500] leading-[150%]">
-          {category[spaceData.category]}
+          {/* {category[spaceData.category]} */}
         </div>
         {city && (
           <div className="px-[12px] py-[4px] bg-[#E9F5F7] rounded-[6px] text-[#3C98A4] text-[14px] font-[500] leading-[150%]">
@@ -33,7 +38,7 @@ export default function SpaceCard({ spaceData }) {
   );
 }
 
-function getCity(position) {
+function getCity(position: string) {
   if (position.indexOf("군산") > -1) {
     return "군산";
   }
@@ -46,8 +51,8 @@ function getCity(position) {
   return null;
 }
 
-const category = {
-  TOUR: "여행",
-  CULTURE: "문화",
-  FESTIVAL: "축제",
-};
+// const category = {
+//   TOUR: "여행",
+//   CULTURE: "문화",
+//   FESTIVAL: "축제",
+// };
