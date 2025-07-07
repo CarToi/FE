@@ -6,9 +6,12 @@ import SideBar from "./_components/SideBar";
 import SidePanel from "./_components/SidePanel";
 import BackToSurveyButton from "./_components/BackToSurveyButton";
 import MapView from "./_components/MapView";
+import TransitionScreen from "@/app/_components/TransitionScreen";
 
 export default function RecommendPage() {
   const [spaceData, setSpaceData] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<null | string>(null);
 
   useEffect(() => {
     const userId = localStorage.getItem("userId") || "";
@@ -26,8 +29,26 @@ export default function RecommendPage() {
       mood: onboarding[6],
     };
 
-    fetchRecommendation(payload).then(setSpaceData);
+    setIsLoading(true);
+    setError(null);
+
+    fetchRecommendation(payload)
+      .then((data) => {
+        setSpaceData(data);
+      })
+      .catch((err) => {
+        console.error(err);
+        setError("추천 정보를 불러오는 데 실패했어요.");
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   }, []);
+
+  if (isLoading) return <TransitionScreen type="toRecommend" />;
+
+  // 에러 페이지 시안 완성되면 변경
+  if (error) return <div>{error}</div>;
 
   return (
     <div className="relative bg-[#FFFFFF] h-screen overflow-hidden">

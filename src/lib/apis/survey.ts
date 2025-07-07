@@ -8,7 +8,7 @@ export async function fetchRecommendation(payload: RecommendationRequest) {
     return res.data;
   } catch (err) {
     console.error("추천 API 실패:", err);
-    alert("추천 정보를 불러오는 데 실패했어요.");
+    throw err;
   }
 }
 
@@ -18,6 +18,6 @@ export async function updateSatisfactionScore(payload: UpdateRequest) {
     await axios.post("/survey/update", payload);
   } catch (err) {
     console.error("만족도 API 호출 실패:", err);
-    alert("만족도 정보를 제출하는 데 실패했어요.");
+    throw err;
   }
 }
