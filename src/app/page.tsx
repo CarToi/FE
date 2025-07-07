@@ -2,7 +2,7 @@
 
 import type { ReactNode } from "react";
 import { useState } from "react";
-import LandingPage from "@/app/_components/LandingPage/LandingPage";
+import LandingPage from "@/app/_components/LandingPage";
 import SurveyScreen from "@/app/_components/SurveyScreen";
 import TransitionScreen from "@/app/_components/TransitionScreen";
 

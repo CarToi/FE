@@ -5,13 +5,17 @@ import { createNewUser } from "@/utils/createNewUser";
 import Image from "next/image";
 import { useEffect } from "react";
 
-export default function LandingPage({ routing }) {
+export default function LandingPage({
+  routing,
+}: {
+  routing: (page: string) => void;
+}) {
   useEffect(() => {
     createNewUser();
     setTimeout(() => {
       routing("OnboardingSurvey");
     }, 1000);
-  }, []);
+  }, [routing]);
 
   return (
     <div className="flex items-center w-full h-screen bg-[#F7F9FD]">
