@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Temp from "@/assets/icons/temp.jpg";
-import { RecommendationResponse } from "@/app/lib/type";
+import { RecommendationResponse } from "@/lib/type";
 
 export default function SpaceCard({
   spaceData,

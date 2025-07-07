@@ -7,7 +7,7 @@ import Button from "@/components/Button";
 
 interface SurveyScreenProps {
   type: "onboarding" | "todayMood";
-  routing: (page: string) => void;
+  routing?: (page: string) => void;
 }
 
 export default function SurveyScreen({ type, routing }: SurveyScreenProps) {

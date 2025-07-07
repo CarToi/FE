@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { transitionData } from "@/constants/transitionData";
 import Image from "next/image";
 
@@ -14,18 +13,15 @@ export default function TransitionScreen({
   type,
   routing,
 }: TransitionScreenProps) {
-  const router = useRouter();
   const transitionContent = transitionData[type];
 
   useEffect(() => {
-    setTimeout(() => {
-      if (routing) {
+    if (routing) {
+      setTimeout(() => {
         routing("TodayMoodSurvey");
-      } else {
-        router.push("/recommend");
-      }
-    }, 1000);
-  }, [transitionContent, routing, router]);
+      }, 1000);
+    }
+  }, [transitionContent, routing]);
 
   return (
     <div className="flex items-center w-full h-screen bg-[#F7F9FD]">
