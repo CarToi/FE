@@ -4,7 +4,6 @@
 import { useEffect } from "react";
 import { createNewUser } from "@/utils/createNewUser";
 import Image from "next/image";
-refactor/#5/landing-page
 import { useEffect } from "react";
 import Button from "@/components/Button";
 import Logo from "@/assets/icons/logo.png";
