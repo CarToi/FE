@@ -1,11 +1,10 @@
 "use client";
 
-import SideBar from "./_components/SideBar";
-import SidePanel from "./_components/SidePanel";
-import BackToSurveyButton from "./_components/BackToSurveyButton";
-import MapView from "./_components/MapView";
-import TransitionScreen from "@/app/_components/TransitionScreen";
 import { useSurveyRecommendation } from "./_hooks/useSurveyRecommendation";
+import SidePanel from "./_components/SidePanel";
+import MapView from "./_components/MapView";
+import BackToSurveyButton from "./_components/BackToSurveyButton";
+import TransitionScreen from "@/app/_components/TransitionScreen";
 
 export default function RecommendPage() {
   const { spaceData, isLoading, error } = useSurveyRecommendation();
@@ -20,9 +19,8 @@ export default function RecommendPage() {
       <div className="absolute inset-0 z-0">
         <MapView />
       </div>
-      <div className="relative flex z-10">
+      <div className="relative z-10">
         <BackToSurveyButton />
-        <SideBar />
         <SidePanel spaceData={spaceData} />
       </div>
     </div>
