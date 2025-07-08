@@ -26,10 +26,10 @@ export default function SurveyScreen({ type, routing }: SurveyScreenProps) {
       <ProgressBar progress={progress} />
       <div className="flex w-[700px] flex-col justify-center gap-[64px]">
         <div className="flex flex-col justify-between gap-[12px]">
-          <h2 className="text-[28px] leading-[120%] font-[600] text-[#1F2229]">
+          <h2 className="text-heading-small text-[#1F2229]">
             {questions[currentQuestion].title}
           </h2>
-          <p className="text-[20px] leading-[150%] font-[600] text-[#79839A]">
+          <p className="text-title-small text-[#79839A]">
             {questions[currentQuestion].contents}
           </p>
         </div>

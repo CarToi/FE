@@ -23,23 +23,21 @@ export default function SpaceCard({
       />
       <div className="flex flex-col gap-1">
         <div className="mt-[12px] flex items-center">
-          <h2 className="text-[20px] leading-[150%] font-[600] text-[#3560C0]">
-            {spaceData.title}
-          </h2>
+          <h2 className="text-title-small text-[#3560C0]">{spaceData.title}</h2>
         </div>
         <div className="flex gap-1">
           <Image src={LocationIcon} width={16} height={16} alt="" />
-          <div className="text-[14px] leading-[150%] font-[400] text-[#616A80]">
+          <div className="text-body-small text-[#616A80]">
             {spaceData.position}
           </div>
         </div>
       </div>
       <div className="mt-[8px] flex gap-[8px]">
-        <div className="rounded-[6px] bg-[#F7F9FD] px-[12px] py-[4px] text-[14px] leading-[150%] font-[500] text-[#3560C0]">
+        <div className="text-body-small rounded-[6px] bg-[#F7F9FD] px-[12px] py-[4px] text-[#3560C0]">
           {CATEGORY[spaceData.category]}
         </div>
         {city && (
-          <div className="rounded-[6px] bg-[#E9F5F7] px-[12px] py-[4px] text-[14px] leading-[150%] font-[500] text-[#3C98A4]">
+          <div className="text-body-small rounded-[6px] bg-[#E9F5F7] px-[12px] py-[4px] text-[#3C98A4]">
             {city}
           </div>
         )}

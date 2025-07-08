@@ -28,10 +28,10 @@ export default function TransitionScreen({
       <div className="flex w-full flex-col items-center gap-[40px]">
         <Image src={transitionContent.image} alt="" />
         <div className="flex w-full flex-col items-center gap-[24px]">
-          <h2 className="text-center text-[36px] leading-[120%] font-[700] whitespace-pre-line text-[#142448]">
+          <h2 className="text-heading-large text-center whitespace-pre-line text-[#142448]">
             {transitionContent.title}
           </h2>
-          <p className="text-center text-[22px] leading-[150%] font-[600] text-[#7F9CDC]">
+          <p className="text-title-medium text-center text-[#7F9CDC]">
             {transitionContent.subtitle}
           </p>
         </div>

@@ -24,7 +24,7 @@ export default function SurveyOption({
     >
       <p
         className={clsx(
-          "text-[20px] leading-[150%] font-[600]",
+          "text-body-large",
           isSelected ? "text-[#3560C0]" : "text-[#B3B9C6]"
         )}
       >
