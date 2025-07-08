@@ -27,7 +27,7 @@ export default function LandingPage({
           <p className="text-[#7F9CDC] text-center text-[22px] font-[600] leading-[150%]">
             먼저 간단한 정보부터 시작해볼까요?
           </p>
-          <Button variant="primary" width={240}>
+          <Button variant="primary" width={240} onClick={() => routing("OnboardingSurvey")}>
             지금 시작할게요!
           </Button>
         </div>
