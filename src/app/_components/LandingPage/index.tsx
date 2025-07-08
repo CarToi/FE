@@ -19,13 +19,14 @@ export default function LandingPage({
   return (
     <div className="flex h-screen w-full items-center bg-[#F7F9FD]">
       <div className="flex w-full flex-col items-center gap-[40px]">
-        <Image src={Logo} alt="" />
+        <Image src={Logo} alt="logo" width={98} height={81}className="sm:h-[121px] sm:w-[98px] h-[81px] w-[65px]"/>
         <div className="flex flex-col items-center gap-[24px] w-full">
           <h2 className="text-[#142448] text-center text-[36px] font-[700] leading-[120%]">
             새길에 오신 것을<br />환영해요!
           </h2>
         <div className="w-full max-w-[720px] bg-[#e6f4f8] border border-[#b6e0ef] rounded-xl p-4 shadow-sm flex gap-2">
             <div className="text-[#1683a4] mt-1">
+
               <Info size={20} />
             </div>
             <div className="text-[#1683a4] text-[14px] font-[500] leading-[150%]">
