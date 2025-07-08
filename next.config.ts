@@ -6,6 +6,7 @@ const nextConfig = {
       "www.gunsan.go.kr",
       "www.ktriptips.com",
       "www.saemangeum.go.kr",
+      "www.sdco.or.kr",
     ],
   },
 };
