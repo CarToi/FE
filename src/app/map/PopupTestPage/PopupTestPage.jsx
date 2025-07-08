@@ -43,7 +43,7 @@ export default function PopupTestPage({ routing }) {
   };
 
   return (
-    <div className="flex flex-col items-center w-full h-screen">
+    <div className="flex h-screen w-full flex-col items-center">
       <button
         className="bg-[#CCCCCC] px-[8px] py-[4px]"
         onClick={handleSubmitClick}

@@ -7,7 +7,7 @@ interface UseSurveyProps {
   routing?: (page: string) => void;
 }
 
-export default function useSurvey({ type, routing }: UseSurveyProps) {
+export function useSurvey({ type, routing }: UseSurveyProps) {
   const router = useRouter();
 
   const questions = surveyData[type];

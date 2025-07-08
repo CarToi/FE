@@ -1,4 +1,3 @@
-// hooks/useSurveyRecommendation.ts
 import { useEffect, useState } from "react";
 import { fetchRecommendation } from "@/lib/apis/survey";
 import { RecommendationRequest, RecommendationResponse } from "@/lib/type";

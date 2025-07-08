@@ -1,11 +1,12 @@
 "use client";
 
-import SideBar from "./_components/SideBar";
-import SidePanel from "./_components/SidePanel";
-import BackToSurveyButton from "./_components/BackToSurveyButton";
-import MapView from "./_components/MapView";
-import TransitionScreen from "@/app/_components/TransitionScreen";
 import { useSurveyRecommendation } from "./_hooks/useSurveyRecommendation";
+import RecommendationPanel from "./_components/RecommendationPanel";
+import MapView from "./_components/MapView";
+import RetrySurveyButton from "./_components/RetrySurveyButton";
+import SatisfactionModalButton from "./_components/SatisfactionModalButton";
+import TransitionScreen from "@/app/_components/TransitionScreen";
+import NavBar from "./_components/NavBar";
 
 export default function RecommendPage() {
   const { spaceData, isLoading, error } = useSurveyRecommendation();
@@ -16,14 +17,21 @@ export default function RecommendPage() {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="relative bg-[#FFFFFF] h-screen overflow-hidden">
+    <div className="relative h-screen overflow-hidden bg-[#FFFFFF]">
       <div className="absolute inset-0 z-0">
         <MapView />
       </div>
-      <div className="relative flex z-10">
-        <BackToSurveyButton />
-        <SideBar />
-        <SidePanel spaceData={spaceData} />
+      <div className="relative z-10">
+        <div className="flex h-screen flex-col sm:flex-row">
+          <NavBar />
+          <RecommendationPanel spaceData={spaceData} />
+        </div>
+
+        {/* 임시 버튼 */}
+        <div className="fixed top-4 right-4 flex gap-4">
+          <RetrySurveyButton />
+          <SatisfactionModalButton />
+        </div>
       </div>
     </div>
   );
