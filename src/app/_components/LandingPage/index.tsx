@@ -5,6 +5,7 @@ import Logo from "@/assets/icons/logo.png";
 import { createNewUser } from "@/utils/createNewUser";
 import Image from "next/image";
 import { useEffect } from "react";
+import Button from "@/components/Button";
 
 export default function LandingPage({
   routing,
@@ -26,7 +27,9 @@ export default function LandingPage({
           <p className="text-[#7F9CDC] text-center text-[22px] font-[600] leading-[150%]">
             먼저 간단한 정보부터 시작해볼까요?
           </p>
-    
+          <Button variant="primary" width={240}>
+            지금 시작할게요!
+          </Button>
         </div>
       </div>
     </div>
