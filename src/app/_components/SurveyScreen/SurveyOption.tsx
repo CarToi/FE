@@ -18,7 +18,7 @@ export default function SurveyOption({
     <div
       onClick={onClick}
       className={clsx(
-        "flex justify-between items-center pl-[24px] pr-[40px] py-[16px] bg-[#F7F9FD] rounded-[12px] border-[2px]",
+        "flex justify-between items-center pl-[24px] pr-[40px] py-[16px] bg-[#F7F9FD] rounded-[12px] border-[2px] cursor-pointer",
         isSelected ? "border-[#577DD1]" : "border-[#F7F9FD]"
       )}
     >
