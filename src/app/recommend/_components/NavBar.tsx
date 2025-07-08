@@ -5,7 +5,7 @@ import LogoKR from "@/assets/icons/logo_kr.png";
 
 export default function NavBar() {
   return (
-    <div className="flex h-12 w-screen items-center justify-between overflow-hidden border-r-1 border-[#EEEFF2] bg-[#FFFFFF] pt-[13px] sm:h-screen sm:w-[72px] sm:flex-col">
+    <div className="flex h-12 w-screen items-center border-r-1 border-[#EEEFF2] bg-white px-5 sm:h-screen sm:w-[72px] sm:flex-col sm:justify-between sm:px-0 sm:py-3">
       <Image
         src={Logo}
         className="h-[30px] w-6 sm:h-[50px] sm:w-10"
