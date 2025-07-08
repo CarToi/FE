@@ -1,6 +1,6 @@
 "use client";
 
-import useSurvey from "./hooks/useSurvey";
+import { useSurvey } from "./hooks/useSurvey";
 import ProgressBar from "@/app/_components/SurveyScreen/ProgressBar";
 import SurveyOption from "./SurveyOption";
 import Button from "@/components/Button";

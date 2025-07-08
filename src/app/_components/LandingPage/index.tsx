@@ -1,9 +1,9 @@
 "use client";
 
-import Logo from "@/assets/icons/logo.png";
+import { useEffect } from "react";
 import { createNewUser } from "@/utils/createNewUser";
 import Image from "next/image";
-import { useEffect } from "react";
+import Logo from "@/assets/icons/logo.png";
 
 export default function LandingPage({
   routing,
