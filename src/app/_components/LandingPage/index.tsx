@@ -1,3 +1,4 @@
+
 "use client";
 
 import Logo from "@/assets/icons/logo.png";
@@ -12,10 +13,7 @@ export default function LandingPage({
 }) {
   useEffect(() => {
     createNewUser();
-    setTimeout(() => {
-      routing("OnboardingSurvey");
-    }, 1000);
-  }, [routing]);
+  }, []);
 
   return (
     <div className="flex items-center w-full h-screen bg-[#F7F9FD]">
@@ -28,6 +26,7 @@ export default function LandingPage({
           <p className="text-[#7F9CDC] text-center text-[22px] font-[600] leading-[150%]">
             먼저 간단한 정보부터 시작해볼까요?
           </p>
+    
         </div>
       </div>
     </div>
