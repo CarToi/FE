@@ -22,13 +22,13 @@ export default function RecommendPage() {
         <MapView />
       </div>
       <div className="relative z-10">
-        <div className="flex">
+        <div className="flex h-screen flex-col sm:flex-row">
           <NavBar />
-          {/* <RecommendationPanel spaceData={spaceData} /> */}
+          <RecommendationPanel spaceData={spaceData} />
         </div>
 
         {/* 임시 버튼 */}
-        {/* <div className="flex gap-4 fixed top-4 right-4">
+        {/* <div className="fixed top-4 right-4 flex gap-4">
           <RetrySurveyButton />
           <SatisfactionModalButton />
         </div> */}
