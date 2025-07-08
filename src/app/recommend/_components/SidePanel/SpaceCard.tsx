@@ -2,6 +2,7 @@ import { RecommendationResponse } from "@/lib/type";
 import { getCity } from "@/utils/getCity";
 import { CATEGORY } from "@/constants/spaceData";
 import Image from "next/image";
+import LocationIcon from "@/assets/icons/location.svg";
 import Temp from "@/assets/icons/temp.jpg";
 
 export default function SpaceCard({
@@ -20,12 +21,19 @@ export default function SpaceCard({
         height={180}
         unoptimized
       />
-      <div className="flex justify-between items-center mt-[12px]">
-        <h2 className="text-[#3560C0] text-[20px] font-[600] leading-[150%]">
-          {spaceData.title}
-        </h2>
+      <div className="flex flex-col gap-1">
+        <div className="flex items-center mt-[12px]">
+          <h2 className="text-[#3560C0] text-[20px] font-[600] leading-[150%]">
+            {spaceData.title}
+          </h2>
+        </div>
+        <div className="flex gap-1">
+          <Image src={LocationIcon} width={16} height={16} alt="" />
+          <div className="text-[#616A80] text-[14px] font-[400] leading-[150%]">
+            {spaceData.position}
+          </div>
+        </div>
       </div>
-
       <div className="flex gap-[8px] mt-[8px]">
         <div className="px-[12px] py-[4px] bg-[#F7F9FD] rounded-[6px] text-[#3560C0] text-[14px] font-[500] leading-[150%]">
           {CATEGORY[spaceData.category]}
