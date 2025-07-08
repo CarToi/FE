@@ -5,6 +5,7 @@ import clsx from "clsx";
 
 interface ButtonProps {
   variant: "primary" | "secondary";
+  style?: "filled" | "outlined";
   width?: number;
   onClick?: () => void;
   disabled?: boolean;
@@ -13,6 +14,7 @@ interface ButtonProps {
 
 export default function Button({
   variant = "primary",
+  style = "filled",
   width = 120,
   onClick,
   disabled = false,
@@ -25,6 +27,7 @@ export default function Button({
         variant === "primary"
           ? "bg-[#3560C0] text-[#F7F9FD]"
           : "bg-[#EEEFF2] text-[#79839A]",
+        style === "outlined" ? "border-2 border-[#577DD1]" : "",
         disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
       )}
       style={{ width }}

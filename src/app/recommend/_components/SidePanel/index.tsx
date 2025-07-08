@@ -10,7 +10,7 @@ export default function SidePanel({
   return (
     <div className="flex">
       <SideBar />
-      <div className="relative flex flex-col gap-[40px] w-[750px] h-screen overflow-hidden  rounded-tr-[20px] rounded-br-[20px] pl-[40px] pr-[20px] py-[40px] bg-[#FFFFFF]">
+      <div className="relative flex flex-col gap-[40px] w-[750px] h-screen overflow-hidden rounded-tr-[20px] rounded-br-[20px] pl-[40px] pr-[20px] py-[40px] bg-[#FFFFFF]">
         <div className="flex flex-col gap-[16px]">
           <h2 className="text-[#1F2229] text-[24px] font-[700] leading-[150%]">
             새길이 오늘 기분에 딱 맞는

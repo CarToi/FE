@@ -3,8 +3,9 @@
 import { useSurveyRecommendation } from "./_hooks/useSurveyRecommendation";
 import SidePanel from "./_components/SidePanel";
 import MapView from "./_components/MapView";
-import BackToSurveyButton from "./_components/BackToSurveyButton";
+import RetrySurveyButton from "./_components/RetrySurveyButton";
 import TransitionScreen from "@/app/_components/TransitionScreen";
+import SatisfactionModalButton from "./_components/SatisfactionModalButton";
 
 export default function RecommendPage() {
   const { spaceData, isLoading, error } = useSurveyRecommendation();
@@ -20,8 +21,11 @@ export default function RecommendPage() {
         <MapView />
       </div>
       <div className="relative z-10">
-        <BackToSurveyButton />
         <SidePanel spaceData={spaceData} />
+        <div className="flex gap-4 fixed top-4 right-4">
+          <RetrySurveyButton />
+          <SatisfactionModalButton />
+        </div>
       </div>
     </div>
   );
