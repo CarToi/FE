@@ -48,7 +48,7 @@ export default function LandingPage({
           </p>
           <Button
             variant="primary"
-            width={240}
+            width={355}
             onClick={() => routing("OnboardingSurvey")}
           >
             지금 시작할게요!
