@@ -21,14 +21,14 @@ export default function RecommendPage() {
       <div className="absolute inset-0 z-0">
         <MapView />
       </div>
-      <div className="relative z-10">
+      <div className="pointer-events-none relative z-10">
         <div className="flex h-screen flex-col sm:flex-row">
           <NavBar />
           <RecommendationPanel spaceData={spaceData} />
         </div>
 
         {/* 임시 버튼 */}
-        <div className="fixed top-4 right-4 flex gap-4">
+        <div className="pointer-events-auto fixed top-4 right-4 flex gap-4">
           <RetrySurveyButton />
           <SatisfactionModalButton />
         </div>
