@@ -23,7 +23,7 @@ export default function Button({
   return (
     <button
       className={clsx(
-        `h-[62px] rounded-[12px] text-[20px] leading-[150%] font-[600]`,
+        `text-body-large h-[62px] rounded-[12px]`,
         variant === "primary"
           ? "bg-[#3560C0] text-[#F7F9FD]"
           : "bg-[#EEEFF2] text-[#79839A]",
