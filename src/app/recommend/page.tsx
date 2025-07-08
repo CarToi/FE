@@ -17,7 +17,7 @@ export default function RecommendPage() {
   if (error) return <div>{error}</div>;
 
   return (
-    <div className="relative h-screen overflow-hidden bg-[#FFFFFF]">
+    <div className="relative h-screen overflow-hidden bg-white">
       <div className="absolute inset-0 z-0">
         <MapView />
       </div>
