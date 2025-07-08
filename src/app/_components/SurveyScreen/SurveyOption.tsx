@@ -18,13 +18,13 @@ export default function SurveyOption({
     <div
       onClick={onClick}
       className={clsx(
-        "flex justify-between items-center pl-[24px] pr-[40px] py-[16px] bg-[#F7F9FD] rounded-[12px] border-[2px] cursor-pointer",
+        "flex cursor-pointer items-center justify-between rounded-[12px] border-[2px] bg-[#F7F9FD] py-[16px] pr-[40px] pl-[24px]",
         isSelected ? "border-[#577DD1]" : "border-[#F7F9FD]"
       )}
     >
       <p
         className={clsx(
-          "text-[20px] font-[600] leading-[150%]",
+          "text-[20px] leading-[150%] font-[600]",
           isSelected ? "text-[#3560C0]" : "text-[#B3B9C6]"
         )}
       >

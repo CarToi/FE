@@ -23,12 +23,12 @@ export default function Button({
   return (
     <button
       className={clsx(
-        `h-[62px] rounded-[12px] text-[20px] font-[600] leading-[150%]`,
+        `h-[62px] rounded-[12px] text-[20px] leading-[150%] font-[600]`,
         variant === "primary"
           ? "bg-[#3560C0] text-[#F7F9FD]"
           : "bg-[#EEEFF2] text-[#79839A]",
         style === "outlined" ? "border-2 border-[#577DD1]" : "",
-        disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
+        disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
       )}
       style={{ width }}
       onClick={onClick}

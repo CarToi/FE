@@ -18,14 +18,14 @@ export default function LandingPage({
   }, [routing]);
 
   return (
-    <div className="flex items-center w-full h-screen bg-[#F7F9FD]">
-      <div className="flex flex-col items-center gap-[40px] w-full">
+    <div className="flex h-screen w-full items-center bg-[#F7F9FD]">
+      <div className="flex w-full flex-col items-center gap-[40px]">
         <Image src={Logo} alt="" />
-        <div className="flex flex-col items-center gap-[24px] w-full">
-          <h2 className="text-[#142448] text-center text-[36px] font-[700] leading-[120%]">
+        <div className="flex w-full flex-col items-center gap-[24px]">
+          <h2 className="text-center text-[36px] leading-[120%] font-[700] text-[#142448]">
             새길에 오신 것을 환영해요!
           </h2>
-          <p className="text-[#7F9CDC] text-center text-[22px] font-[600] leading-[150%]">
+          <p className="text-center text-[22px] leading-[150%] font-[600] text-[#7F9CDC]">
             먼저 간단한 정보부터 시작해볼까요?
           </p>
         </div>

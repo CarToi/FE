@@ -22,18 +22,18 @@ export default function SurveyScreen({ type, routing }: SurveyScreenProps) {
   } = useSurvey({ type, routing });
 
   return (
-    <div className="flex flex-col justify-between items-center w-full h-screen">
+    <div className="flex h-screen w-full flex-col items-center justify-between">
       <ProgressBar progress={progress} />
-      <div className="flex flex-col justify-center gap-[64px] w-[700px]">
+      <div className="flex w-[700px] flex-col justify-center gap-[64px]">
         <div className="flex flex-col justify-between gap-[12px]">
-          <h2 className="text-[#1F2229] text-[28px] font-[600] leading-[120%]">
+          <h2 className="text-[28px] leading-[120%] font-[600] text-[#1F2229]">
             {questions[currentQuestion].title}
           </h2>
-          <p className="text-[#79839A] text-[20px] font-[600] leading-[150%]">
+          <p className="text-[20px] leading-[150%] font-[600] text-[#79839A]">
             {questions[currentQuestion].contents}
           </p>
         </div>
-        <div className="flex flex-col justify-between gap-[12px] w-[700px]">
+        <div className="flex w-[700px] flex-col justify-between gap-[12px]">
           {questions[currentQuestion].items.map((item, index) => (
             <SurveyOption
               key={index}
@@ -43,7 +43,7 @@ export default function SurveyScreen({ type, routing }: SurveyScreenProps) {
             />
           ))}
         </div>
-        <div className="flex gap-[12px] items-center self-end">
+        <div className="flex items-center gap-[12px] self-end">
           {currentQuestion > 0 && (
             <Button variant="secondary" width={120} onClick={handlePrevClick}>
               이전
