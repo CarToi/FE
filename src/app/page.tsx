@@ -18,13 +18,10 @@ export default function Home() {
     ToMoodTransition: () => (
       <TransitionScreen type="toMood" routing={handleRouting} />
     ),
-    ToRecommendTransition: () => <TransitionScreen type="toRecommend" />,
     OnboardingSurvey: () => (
       <SurveyScreen type="onboarding" routing={handleRouting} />
     ),
-    TodayMoodSurvey: () => (
-      <SurveyScreen type="todayMood" routing={handleRouting} />
-    ),
+    TodayMoodSurvey: () => <SurveyScreen type="todayMood" />,
   };
 
   return <div>{pageMapping[currentPage]?.()}</div>;

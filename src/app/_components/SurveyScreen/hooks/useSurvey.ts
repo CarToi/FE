@@ -1,12 +1,15 @@
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { surveyData } from "@/constants/surveyData";
 
 interface UseSurveyProps {
   type: "onboarding" | "todayMood";
-  routing: (page: string) => void;
+  routing?: (page: string) => void;
 }
 
-export default function useSurvey({ type, routing }: UseSurveyProps) {
+export function useSurvey({ type, routing }: UseSurveyProps) {
+  const router = useRouter();
+
   const questions = surveyData[type];
   const storageKey = `${type}Answers`;
 
@@ -35,9 +38,11 @@ export default function useSurvey({ type, routing }: UseSurveyProps) {
 
   const handleNextClick = () => {
     if (currentQuestion === questions.length - 1) {
-      routing(
-        type === "onboarding" ? "ToMoodTransition" : "ToRecommendTransition"
-      );
+      if (routing) {
+        routing("ToMoodTransition");
+      } else {
+        router.push("/recommend");
+      }
     } else {
       setCurrentQuestion((prev) => prev + 1);
     }

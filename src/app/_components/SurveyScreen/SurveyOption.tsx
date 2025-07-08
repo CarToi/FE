@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
-import checkDefault from "@/assets/icons/check.png";
-import checkActive from "@/assets/icons/check_current.png";
+import checkDefault from "@/assets/icons/check_default.svg";
+import checkActive from "@/assets/icons/check_active.svg";
 
 interface SurveyOptionProps {
   text: string;
@@ -18,13 +18,13 @@ export default function SurveyOption({
     <div
       onClick={onClick}
       className={clsx(
-        "flex justify-between items-center pl-[24px] pr-[40px] py-[16px] bg-[#F7F9FD] rounded-[12px] border-[2px]",
+        "flex cursor-pointer items-center justify-between rounded-[12px] border-[2px] bg-[#F7F9FD] py-[16px] pr-[40px] pl-[24px]",
         isSelected ? "border-[#577DD1]" : "border-[#F7F9FD]"
       )}
     >
       <p
         className={clsx(
-          "text-[20px] font-[600] leading-[150%]",
+          "text-body-large",
           isSelected ? "text-[#3560C0]" : "text-[#B3B9C6]"
         )}
       >

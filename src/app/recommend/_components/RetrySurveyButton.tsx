@@ -1,7 +1,7 @@
 import { useRouter } from "next/navigation";
 import Button from "@/components/Button";
 
-export default function BackToSurveyButton() {
+export default function RetrySurveyButton() {
   const router = useRouter();
 
   const handleBackToSurvey = () => {
@@ -10,10 +10,13 @@ export default function BackToSurveyButton() {
   };
 
   return (
-    <div className="fixed top-4 right-4">
-      <Button variant="primary" width={160} onClick={handleBackToSurvey}>
-        다시 설문하기
-      </Button>
-    </div>
+    <Button
+      variant="secondary"
+      style="outlined"
+      width={160}
+      onClick={handleBackToSurvey}
+    >
+      다시 추천받기
+    </Button>
   );
 }
