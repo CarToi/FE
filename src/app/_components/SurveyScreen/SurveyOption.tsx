@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
-import checkDefault from "@/assets/icons/check.png";
-import checkActive from "@/assets/icons/check_current.png";
+import checkDefault from "@/assets/icons/check_default.svg";
+import checkActive from "@/assets/icons/check_active.svg";
 
 interface SurveyOptionProps {
   text: string;
