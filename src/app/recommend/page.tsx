@@ -28,10 +28,10 @@ export default function RecommendPage() {
         </div>
 
         {/* 임시 버튼 */}
-        {/* <div className="fixed top-4 right-4 flex gap-4">
+        <div className="fixed top-4 right-4 flex gap-4">
           <RetrySurveyButton />
           <SatisfactionModalButton />
-        </div> */}
+        </div>
       </div>
     </div>
   );
