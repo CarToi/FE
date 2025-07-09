@@ -1,8 +1,8 @@
 import { RecommendationResponse } from "@/lib/type";
 import { getCity } from "@/utils/getCity";
 import { CATEGORY } from "@/constants/spaceData";
+import { MapPin } from "lucide-react";
 import Image from "next/image";
-import LocationIcon from "@/assets/icons/location.svg";
 import Temp from "@/assets/icons/temp.jpg";
 
 export default function SpaceCard({
@@ -29,13 +29,9 @@ export default function SpaceCard({
             <h2 className="text-title-small text-[#1F2229]">{title}</h2>
           </div>
           <div className="flex items-start gap-1">
-            <Image
-              src={LocationIcon}
-              width={16}
-              height={16}
-              className="py-0.5"
-              alt=""
-            />
+            <div className="size-4 py-0.5 text-[#616A80]">
+              <MapPin size={16} />
+            </div>
             <div className="text-body-small text-[#616A80]">{position}</div>
           </div>
         </div>
