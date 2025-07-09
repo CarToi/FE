@@ -3,7 +3,6 @@
 import { useEffect } from "react";
 import { createNewUser } from "@/utils/createNewUser";
 import Image from "next/image";
-import Logo from "@/assets/icons/logo.png";
 
 export default function LandingPage({
   routing,
@@ -20,7 +19,7 @@ export default function LandingPage({
   return (
     <div className="flex h-screen w-full items-center bg-[#F7F9FD]">
       <div className="flex w-full flex-col items-center gap-[40px]">
-        <Image src={Logo} alt="" />
+        <Image src="" alt="" />
         <div className="flex w-full flex-col items-center gap-[24px]">
           <h2 className="text-center text-[36px] leading-[120%] font-[700] text-[#142448]">
             새길에 오신 것을 환영해요!
