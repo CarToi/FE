@@ -3,10 +3,15 @@ import { RecommendationResponse } from "@/lib/type";
 import Image from "next/image";
 import Temp from "@/assets/icons/temp.jpg";
 
+interface RecommendationMarkerProps extends RecommendationResponse {
+  onClick?: () => void;
+}
+
 export default function RecommendationMarker({
   image,
   coordinate,
-}: RecommendationResponse) {
+  onClick,
+}: RecommendationMarkerProps) {
   if (!coordinate) return null;
 
   const coord = { lat: coordinate.latitude, lng: coordinate.longitude };
@@ -24,7 +29,7 @@ export default function RecommendationMarker({
         }}
       />
       <CustomOverlayMap position={coord} yAnchor={1.25}>
-        <div className="size-[43px]">
+        <div className="size-[43px]" onClick={onClick}>
           <div className="relative m-auto size-9">
             <Image
               src={image || Temp}

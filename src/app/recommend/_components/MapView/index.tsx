@@ -3,9 +3,10 @@
 import { Map, MapMarker, Polyline, useKakaoLoader } from "react-kakao-maps-sdk";
 import { RecommendationResponse } from "@/lib/type";
 import { COORDINATE } from "@/constants/spaceData";
-import { getMidpoint } from "@/utils/getMidpoint";
+import { Coordinate, getMidpoint } from "@/utils/getMidpoint";
 import { getDestination } from "@/utils/getDestination";
 import RecommendationMarker from "./RecommendationMarker";
+import { useState } from "react";
 
 export default function MapView({
   spaceData,
@@ -15,6 +16,7 @@ export default function MapView({
   const [loading, error] = useKakaoLoader({
     appkey: process.env.NEXT_PUBLIC_APPKEY!,
   });
+  const [selectedSpace, setSelectedSpace] = useState<Coordinate | null>(null);
 
   if (loading) return <div>Loading</div>;
   if (error) return <div>Error</div>;
@@ -24,10 +26,21 @@ export default function MapView({
   const midpoint = getMidpoint(origin, destination);
 
   return (
-    <Map level={8} center={midpoint} style={{ width: "100%", height: "100%" }}>
+    <Map level={10} center={midpoint} style={{ width: "100%", height: "100%" }}>
       {/* 추천 지점 마커 */}
       {spaceData.map((space, index) => (
-        <RecommendationMarker key={index} {...space} />
+        <RecommendationMarker
+          key={index}
+          {...space}
+          onClick={() => {
+            if (space.coordinate) {
+              setSelectedSpace({
+                lat: space.coordinate.latitude,
+                lng: space.coordinate.longitude,
+              });
+            }
+          }}
+        />
       ))}
 
       {/* 시작 지점 마커 */}
@@ -56,7 +69,13 @@ export default function MapView({
 
       {/* 경로 */}
       <Polyline
-        path={[[origin, midpoint, destination]]}
+        path={[
+          [
+            origin,
+            ...(selectedSpace ? [selectedSpace] : [midpoint]),
+            destination,
+          ],
+        ]}
         strokeWeight={5}
         strokeColor={"#F84B5F"}
         strokeOpacity={0.8}
