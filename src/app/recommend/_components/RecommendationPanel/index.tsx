@@ -7,7 +7,7 @@ export default function RecommendationPanel({
   spaceData: RecommendationResponse[];
 }) {
   return (
-    <div className="pointer-events-auto mt-auto flex h-[50vh] min-w-[500px] rounded-tl-[20px] rounded-tr-[20px] bg-white px-4 py-5 sm:mt-0 sm:h-screen sm:w-[50vw] sm:max-w-[750px] sm:rounded-tl-none sm:rounded-br-[20px] sm:p-10">
+    <div className="pointer-events-auto mt-auto flex h-[50vh] rounded-tl-[20px] rounded-tr-[20px] bg-white px-4 py-5 sm:mt-0 sm:h-screen sm:w-[50vw] sm:max-w-[750px] sm:min-w-[500px] sm:rounded-tl-none sm:rounded-br-[20px] sm:p-10">
       <div className="scrollbar-hide flex flex-col gap-4 overflow-x-auto sm:gap-10 sm:overflow-hidden">
         <div className="flex flex-col gap-2 sm:gap-4">
           <h2 className="sm:text-title-large text-title-small text-[#1F2229]">
