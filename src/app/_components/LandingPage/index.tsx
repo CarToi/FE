@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { createNewUser } from "@/utils/createNewUser";
 import { Info } from "lucide-react";
 import Button from "@/components/Button";
-import Logo from "../../../../public/logo/logo.svg";
+import Logo from "@/assets/logo/logo.svg";
 
 export default function LandingPage({
   routing,

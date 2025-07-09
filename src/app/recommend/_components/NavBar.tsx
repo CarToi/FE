@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Logo from "../../../../public/logo/logo_simple.svg";
-import LogoDev from "../../../../public/logo/logo_dev.png";
-import LogoKR from "../../../../public/logo/logo_kr.png";
+import Logo from "@/assets/logo/logo_simple.svg";
+import LogoDev from "@/assets/logo/logo_dev.png";
+import LogoKR from "@/assets/logo/logo_kr.png";
 
 export default function NavBar() {
   return (
