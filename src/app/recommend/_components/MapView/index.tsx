@@ -26,7 +26,9 @@ export default function MapView({
   return (
     <Map level={8} center={midpoint} style={{ width: "100%", height: "100%" }}>
       {/* 추천 지점 마커 */}
-      <RecommendationMarker position={midpoint} />
+      {spaceData.map((space, index) => (
+        <RecommendationMarker key={index} {...space} />
+      ))}
 
       {/* 시작 지점 마커 */}
       <MapMarker

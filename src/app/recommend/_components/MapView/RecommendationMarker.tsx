@@ -1,18 +1,19 @@
 import { CustomOverlayMap, MapMarker } from "react-kakao-maps-sdk";
-import { Coordinate } from "@/utils/getMidpoint";
+import { RecommendationResponse } from "@/lib/type";
 import Image from "next/image";
 
-interface RecommendationMarkerProps {
-  position: Coordinate;
-}
-
 export default function RecommendationMarker({
-  position,
-}: RecommendationMarkerProps) {
+  image,
+  coordinate,
+}: RecommendationResponse) {
+  if (!coordinate) return null;
+
+  const coord = { lat: coordinate.latitude, lng: coordinate.longitude };
+
   return (
     <>
       <MapMarker
-        position={position}
+        position={coord}
         image={{
           src: "/icons/marker_recommendation.svg",
           size: {
@@ -21,11 +22,11 @@ export default function RecommendationMarker({
           },
         }}
       />
-      <CustomOverlayMap position={position} yAnchor={1.25}>
+      <CustomOverlayMap position={coord} yAnchor={1.25}>
         <div className="size-[43px]">
           <div className="relative m-auto size-9">
             <Image
-              src="https://www.saemangeum.go.kr/resources/images/culturetour/tour_spot/img_tour_spot_ba10.jpg"
+              src={image || ""}
               fill
               className="rounded-full object-cover"
               alt=""
