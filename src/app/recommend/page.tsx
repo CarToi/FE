@@ -28,9 +28,7 @@ export default function RecommendPage() {
           <NavBar />
           <RecommendationPanel spaceData={spaceData} />
         </div>
-
-        {/* 임시 버튼 */}
-        <div className="pointer-events-auto fixed top-4 right-4 flex gap-4">
+        <div className="pointer-events-auto fixed top-14 right-4 flex gap-2 sm:top-5 sm:gap-5">
           <RetrySurveyButton />
           <SatisfactionModalButton />
         </div>

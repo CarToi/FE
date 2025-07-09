@@ -11,12 +11,11 @@ export default function RetrySurveyButton() {
 
   return (
     <Button
-      variant="secondary"
-      style="outlined"
-      width={160}
+      color="white"
       onClick={handleBackToSurvey}
+      className="text-body-small sm:text-body-large h-[37px] w-[119px] rounded-md sm:h-[62px] sm:w-[166px] sm:rounded-xl"
     >
-      다시 추천받기
+      새로운 추천받기
     </Button>
   );
 }

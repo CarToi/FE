@@ -2,8 +2,12 @@ import Button from "@/components/Button";
 
 export default function SatisfactionModalButton() {
   return (
-    <Button variant="primary" width={160} onClick={() => {}}>
-      만족도 남기기
+    <Button
+      color="blue"
+      onClick={() => {}}
+      className="text-body-small sm:text-body-large h-[37px] w-[107px] rounded-md sm:h-[62px] sm:w-[149px] sm:rounded-xl"
+    >
+      서비스 만족도
     </Button>
   );
 }

@@ -45,14 +45,18 @@ export default function SurveyScreen({ type, routing }: SurveyScreenProps) {
         </div>
         <div className="flex items-center gap-[12px] self-end">
           {currentQuestion > 0 && (
-            <Button variant="secondary" width={120} onClick={handlePrevClick}>
+            <Button
+              color="gray"
+              onClick={handlePrevClick}
+              className="text-body-large h-[62px] w-[120px] rounded-xl"
+            >
               이전
             </Button>
           )}
           <Button
-            variant="primary"
-            width={120}
+            color="blue"
             onClick={handleNextClick}
+            className="text-body-large h-[62px] w-[120px] rounded-xl"
             disabled={!answers[currentQuestion]}
           >
             다음
