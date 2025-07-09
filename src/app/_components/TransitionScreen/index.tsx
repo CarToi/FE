@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { transitionData } from "@/constants/transitionData";
 import Image from "next/image";
 
@@ -14,28 +13,25 @@ export default function TransitionScreen({
   type,
   routing,
 }: TransitionScreenProps) {
-  const router = useRouter();
   const transitionContent = transitionData[type];
 
   useEffect(() => {
-    setTimeout(() => {
-      if (routing) {
+    if (routing) {
+      setTimeout(() => {
         routing("TodayMoodSurvey");
-      } else {
-        router.push("/recommend");
-      }
-    }, 1000);
-  }, [transitionContent, routing, router]);
+      }, 1000);
+    }
+  }, [transitionContent, routing]);
 
   return (
-    <div className="flex items-center w-full h-screen bg-[#F7F9FD]">
-      <div className="flex flex-col items-center gap-[40px] w-full">
+    <div className="flex h-screen w-full items-center bg-[#F7F9FD]">
+      <div className="flex w-full flex-col items-center gap-[40px]">
         <Image src={transitionContent.image} alt="" />
-        <div className="flex flex-col items-center gap-[24px] w-full">
-          <h2 className="text-[#142448] text-center text-[36px] font-[700] leading-[120%] whitespace-pre-line">
+        <div className="flex w-full flex-col items-center gap-[24px]">
+          <h2 className="text-heading-large text-center whitespace-pre-line text-[#142448]">
             {transitionContent.title}
           </h2>
-          <p className="text-[#7F9CDC] text-center text-[22px] font-[600] leading-[150%]">
+          <p className="text-title-medium text-center text-[#7F9CDC]">
             {transitionContent.subtitle}
           </p>
         </div>

@@ -5,7 +5,10 @@ import { createNewUser } from "@/utils/createNewUser";
 import Image from "next/image";
 import Button from "@/components/Button";
 import Logo from "@/assets/icons/logo.png";
+<<<<<<< HEAD
 import { Info } from "lucide-react";
+=======
+>>>>>>> 8767f72b4e1e409a977d6f8bdf2640902926353b
 
 export default function LandingPage({
   routing,
@@ -19,7 +22,11 @@ export default function LandingPage({
   return (
     <div className="flex h-screen w-full items-center bg-[#F7F9FD]">
       <div className="flex w-full flex-col items-center gap-[40px]">
+<<<<<<< HEAD
         <Image src={Logo} alt="logo" width={98} height={81}className="sm:h-[121px] sm:w-[98px] h-[81px] w-[65px]"/>
+=======
+        <Image src={Logo} alt="" />
+>>>>>>> 8767f72b4e1e409a977d6f8bdf2640902926353b
         <div className="flex flex-col items-center gap-[24px] w-full">
           <h2 className="text-[#142448] text-center text-title-large sm:text-display">
             새길에 오신 것을<br />환영해요!
@@ -48,7 +55,11 @@ export default function LandingPage({
           </p>
           <Button
             variant="primary"
+<<<<<<< HEAD
             width={355}
+=======
+            width={240}
+>>>>>>> 8767f72b4e1e409a977d6f8bdf2640902926353b
             onClick={() => routing("OnboardingSurvey")}
           >
             지금 시작할게요!

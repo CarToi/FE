@@ -1,56 +1,37 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import axios from "axios";
-import SideBar from "./_components/SideBar";
-import SidePanel from "./_components/SidePanel";
-import BackToSurveyButton from "./_components/BackToSurveyButton";
+import { useSurveyRecommendation } from "./_hooks/useSurveyRecommendation";
+import RecommendationPanel from "./_components/RecommendationPanel";
 import MapView from "./_components/MapView";
+import RetrySurveyButton from "./_components/RetrySurveyButton";
+import SatisfactionModalButton from "./_components/SatisfactionModalButton";
+import TransitionScreen from "@/app/_components/TransitionScreen";
+import NavBar from "./_components/NavBar";
 
 export default function RecommendPage() {
-  const [spaceData, setSpaceData] = useState([]);
+  const { spaceData, isLoading, error } = useSurveyRecommendation();
 
-  useEffect(() => {
-    const submitTodayMood = async () => {
-      const USID = localStorage.getItem("USID") || "";
-      const onboarding = JSON.parse(
-        localStorage.getItem("onboardingAnswers") ?? "[]"
-      );
+  if (isLoading) return <TransitionScreen type="toRecommend" />;
 
-      const payload = {
-        clientId: USID,
-        age: Number(onboarding[0]?.substr(0, 2) || 0),
-        gender: onboarding[1],
-        resident: onboarding[2],
-        city: onboarding[3],
-        want: onboarding[5],
-        mood: onboarding[6],
-      };
-
-      try {
-        const res = await axios.post(
-          "https://saegil.store/api/survey/recommendation",
-          payload
-        );
-        setSpaceData(res.data);
-      } catch (err) {
-        console.error("추천 API 실패:", err);
-        alert("추천 정보를 불러오는 데 실패했어요.");
-      }
-    };
-
-    submitTodayMood();
-  }, []);
+  // 에러 페이지 시안 완성되면 변경
+  if (error) return <div>{error}</div>;
 
   return (
-    <div className="relative bg-[#FFFFFF] h-screen overflow-hidden">
+    <div className="relative h-screen overflow-hidden bg-[#FFFFFF]">
       <div className="absolute inset-0 z-0">
         <MapView />
       </div>
-      <div className="relative flex z-10">
-        <BackToSurveyButton />
-        <SideBar />
-        <SidePanel spaceData={spaceData} />
+      <div className="relative z-10">
+        <div className="flex h-screen flex-col sm:flex-row">
+          <NavBar />
+          <RecommendationPanel spaceData={spaceData} />
+        </div>
+
+        {/* 임시 버튼 */}
+        <div className="fixed top-4 right-4 flex gap-4">
+          <RetrySurveyButton />
+          <SatisfactionModalButton />
+        </div>
       </div>
     </div>
   );
