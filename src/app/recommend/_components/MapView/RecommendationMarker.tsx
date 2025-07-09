@@ -1,6 +1,7 @@
 import { CustomOverlayMap, MapMarker } from "react-kakao-maps-sdk";
 import { RecommendationResponse } from "@/lib/type";
 import Image from "next/image";
+import Temp from "@/assets/icons/temp.jpg";
 
 export default function RecommendationMarker({
   image,
@@ -26,7 +27,7 @@ export default function RecommendationMarker({
         <div className="size-[43px]">
           <div className="relative m-auto size-9">
             <Image
-              src={image || ""}
+              src={image || Temp}
               fill
               className="rounded-full object-cover"
               alt=""
