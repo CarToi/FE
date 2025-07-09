@@ -34,7 +34,7 @@ export default function MapView({
       <MapMarker
         position={origin}
         image={{
-          src: "/icons/marker.svg",
+          src: "/icons/marker_origin.svg",
           size: {
             width: 42,
             height: 55,
@@ -46,7 +46,7 @@ export default function MapView({
       <MapMarker
         position={destination}
         image={{
-          src: "/icons/marker.svg",
+          src: "/icons/marker_destination.svg",
           size: {
             width: 42,
             height: 55,
@@ -59,7 +59,7 @@ export default function MapView({
         path={[[origin, midpoint, destination]]}
         strokeWeight={5}
         strokeColor={"#F84B5F"}
-        strokeOpacity={0.7}
+        strokeOpacity={0.8}
         strokeStyle={"solid"}
       />
     </Map>
