@@ -4,33 +4,29 @@ import { ReactNode } from "react";
 import clsx from "clsx";
 
 interface ButtonProps {
-  variant: "primary" | "secondary";
-  style?: "filled" | "outlined";
-  width?: number;
+  color: "blue" | "gray" | "white";
   onClick?: () => void;
+  className?: string;
   disabled?: boolean;
   children: ReactNode;
 }
 
 export default function Button({
-  variant = "primary",
-  style = "filled",
-  width = 120,
+  color = "blue",
   onClick,
   disabled = false,
+  className = "",
   children,
 }: ButtonProps) {
   return (
     <button
       className={clsx(
-        `text-body-large h-[62px] rounded-[12px]`,
-        variant === "primary"
-          ? "bg-[#3560C0] text-[#F7F9FD]"
-          : "bg-[#EEEFF2] text-[#79839A]",
-        style === "outlined" ? "border-2 border-[#577DD1]" : "",
+        className,
+        color === "blue" && "bg-[#3560C0] text-[#F7F9FD]",
+        color === "gray" && "bg-[#EEEFF2] text-[#79839A]",
+        color === "white" && "bg-white text-[#79839A]",
         disabled ? "cursor-not-allowed opacity-50" : "cursor-pointer"
       )}
-      style={{ width }}
       onClick={onClick}
       disabled={disabled}
     >
