@@ -1,7 +1,7 @@
 import { CustomOverlayMap, MapMarker } from "react-kakao-maps-sdk";
 import { RecommendationResponse } from "@/lib/type";
 import Image from "next/image";
-import Temp from "../../../../../public/images/temp.jpg";
+import Temp from "@/assets/images/temp.jpg";
 
 interface RecommendationMarkerProps extends RecommendationResponse {
   onClick?: () => void;

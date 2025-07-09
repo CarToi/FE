@@ -3,7 +3,7 @@ import { getCity } from "@/utils/getCity";
 import { CATEGORY } from "@/constants/spaceData";
 import { MapPin } from "lucide-react";
 import Image from "next/image";
-import Temp from "../../../../../public/images/temp.jpg";
+import Temp from "@/assets/images/temp.jpg";
 
 export default function SpaceCard({
   title,
