@@ -1,5 +1,5 @@
-import MoodFinder from "../../public/illusts/mood_finder.png";
-import CummuteRecommendation from "../../public/illusts/commute_recommendation.png";
+import MoodFinder from "../../public/images/mood_finder.png";
+import CummuteRecommendation from "../../public/images/commute_recommendation.png";
 
 export const transitionData = {
   toMood: {

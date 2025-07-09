@@ -1,7 +1,5 @@
 import clsx from "clsx";
-import Image from "next/image";
-import checkDefault from "@/assets/icons/check_default.svg";
-import checkActive from "@/assets/icons/check_active.svg";
+import { Check } from "lucide-react";
 
 interface SurveyOptionProps {
   text: string;
@@ -30,7 +28,7 @@ export default function SurveyOption({
       >
         {text}
       </p>
-      <Image src={isSelected ? checkActive : checkDefault} alt="" />
+      <Check size={24} color={isSelected ? "#3560C0" : "#B3B9C6"} />
     </div>
   );
 }

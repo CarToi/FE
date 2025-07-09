@@ -1,25 +1,14 @@
 "use client";
 
-import { Map, MapMarker, useKakaoLoader } from "react-kakao-maps-sdk";
+import Bad from "../../../public/icons/emoji_bad.svg";
+import Image from "next/image";
 
-export default function KakaoMap() {
-  const [loading, error] = useKakaoLoader({
-    appkey: process.env.NEXT_PUBLIC_APPKEY!,
-  });
-  if (loading) return <div>Loading</div>;
-  if (error) return <div>Error</div>;
+export default function MapPage() {
   return (
-    <>
+    <div>
       <div>테스트 페이지</div>
-      <Map
-        level={3}
-        center={{ lat: 33.5563, lng: 126.79581 }}
-        style={{ width: "100%", height: "360px" }}
-      >
-        <MapMarker position={{ lat: 33.55635, lng: 126.795841 }}>
-          <div style={{ color: "#000" }}>Hello World!</div>
-        </MapMarker>
-      </Map>
-    </>
+      <Bad className="text-red-500" />
+      <Image src={Bad} alt="" />
+    </div>
   );
 }
