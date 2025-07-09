@@ -29,8 +29,8 @@ export default function SpaceCard({
             <h2 className="text-title-small text-[#1F2229]">{title}</h2>
           </div>
           <div className="flex items-start gap-1">
-            <div className="size-4 py-0.5 text-[#616A80]">
-              <MapPin size={16} />
+            <div className="size-4 py-0.5">
+              <MapPin size={16} color="#616A80" />
             </div>
             <div className="text-body-small text-[#616A80]">{position}</div>
           </div>

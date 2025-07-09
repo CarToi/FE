@@ -30,8 +30,8 @@ export default function LandingPage({
           </h1>
           <div className="flex flex-col gap-5 sm:gap-6">
             <div className="flex w-full max-w-[640px] gap-2 rounded-xl border border-[#C3E5E9] bg-[#E9F5F7] p-4">
-              <div className="mt-1 text-[#3C98A4]">
-                <Info size={14} />
+              <div className="mt-1">
+                <Info size={14} color="#3C98A4" />
               </div>
               <p className="text-link-small sm:text-link-large text-[#3C98A4]">
                 본 서비스는 새만금사업 보조 목적의 정주의향 확인 및 인구유입
