@@ -22,7 +22,7 @@ export default function RecommendationPanel({
         <div className="h-0.5 border border-[#EEEFF2]"></div>
         <div className="scrollbar-overlay grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5 sm:overflow-x-auto">
           {spaceData.map((space, index) => (
-            <SpaceCard key={index} spaceData={space} />
+            <SpaceCard key={index} {...space} />
           ))}
         </div>
       </div>

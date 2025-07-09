@@ -12,8 +12,12 @@ export interface RecommendationResponse {
   title: string;
   position: string;
   category: "FESTIVAL" | "EVENT" | "TOUR" | "CULTURE";
-  image: string;
+  image: string | null;
   url: string;
+  coordinate: {
+    longitude: number;
+    latitude: number;
+  } | null;
 }
 
 export interface UpdateRequest {
