@@ -1,6 +1,6 @@
 "use client";
 
-import { Map, MapMarker, useKakaoLoader } from "react-kakao-maps-sdk";
+import { Map, MapMarker, Polyline, useKakaoLoader } from "react-kakao-maps-sdk";
 import { RecommendationResponse } from "@/lib/type";
 import { COORDINATE } from "@/constants/spaceData";
 import { getMidpoint } from "@/utils/getMidpoint";
@@ -50,6 +50,15 @@ export default function MapView({
             height: 55,
           },
         }}
+      />
+
+      {/* 경로 */}
+      <Polyline
+        path={[[origin, midpoint, destination]]}
+        strokeWeight={5}
+        strokeColor={"#F84B5F"}
+        strokeOpacity={0.7}
+        strokeStyle={"solid"}
       />
     </Map>
   );
