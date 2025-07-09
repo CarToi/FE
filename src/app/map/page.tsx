@@ -1,6 +1,6 @@
 "use client";
 
-import Bad from "@/assets/icons/emoji_bad.svg";
+import Bad from "../../../public/icons/emoji_bad.svg";
 import Image from "next/image";
 
 export default function MapPage() {
