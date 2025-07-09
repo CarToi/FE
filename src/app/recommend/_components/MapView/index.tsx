@@ -26,7 +26,11 @@ export default function MapView({
   const midpoint = getMidpoint(origin, destination);
 
   return (
-    <Map level={10} center={midpoint} style={{ width: "100%", height: "100%" }}>
+    <Map
+      level={10}
+      center={selectedSpace ? selectedSpace : midpoint}
+      style={{ width: "100%", height: "100%" }}
+    >
       {/* 추천 지점 마커 */}
       {spaceData.map((space, index) => (
         <RecommendationMarker
