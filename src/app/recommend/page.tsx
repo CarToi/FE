@@ -18,8 +18,10 @@ export default function RecommendPage() {
 
   return (
     <div className="relative h-screen overflow-hidden bg-white">
-      <div className="absolute inset-0 z-0">
-        <MapView />
+      <div className="absolute inset-0 z-0 pt-10 sm:pt-0">
+        <div className="flex h-[50vh] w-screen sm:ml-auto sm:h-screen sm:w-[50vw] sm:min-w-[calc(100vw-750px)]">
+          <MapView />
+        </div>
       </div>
       <div className="pointer-events-none relative z-10">
         <div className="flex h-screen flex-col sm:flex-row">
