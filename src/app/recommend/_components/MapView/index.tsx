@@ -1,11 +1,17 @@
 "use client";
 
 import { Map, MapMarker, useKakaoLoader } from "react-kakao-maps-sdk";
+import { RecommendationResponse } from "@/lib/type";
 import { COORDINATE } from "@/constants/spaceData";
 import { getMidpoint } from "@/utils/getMidpoint";
 import { getDestination } from "@/utils/getDestination";
+import RecommendationMarker from "./RecommendationMarker";
 
-export default function MapView() {
+export default function MapView({
+  spaceData,
+}: {
+  spaceData: RecommendationResponse[];
+}) {
   const [loading, error] = useKakaoLoader({
     appkey: process.env.NEXT_PUBLIC_APPKEY!,
   });
@@ -18,7 +24,11 @@ export default function MapView() {
   const midpoint = getMidpoint(origin, destination);
 
   return (
-    <Map level={7} center={midpoint} style={{ width: "100%", height: "100%" }}>
+    <Map level={8} center={midpoint} style={{ width: "100%", height: "100%" }}>
+      {/* 추천 지점 마커 */}
+      <RecommendationMarker position={midpoint} />
+
+      {/* 시작 지점 마커 */}
       <MapMarker
         position={origin}
         image={{
@@ -29,6 +39,8 @@ export default function MapView() {
           },
         }}
       />
+
+      {/* 도착 지점 마커 */}
       <MapMarker
         position={destination}
         image={{
@@ -39,10 +51,6 @@ export default function MapView() {
           },
         }}
       />
-
-      <MapMarker position={midpoint}>
-        <div style={{ color: "#000" }}>중간</div>
-      </MapMarker>
     </Map>
   );
 }
