@@ -50,6 +50,7 @@ export default function MapView({
       {/* 시작 지점 마커 */}
       <MapMarker
         position={origin}
+        zIndex={50}
         image={{
           src: "/icons/marker_origin.svg",
           size: {
@@ -62,6 +63,7 @@ export default function MapView({
       {/* 도착 지점 마커 */}
       <MapMarker
         position={destination}
+        zIndex={50}
         image={{
           src: "/icons/marker_destination.svg",
           size: {
