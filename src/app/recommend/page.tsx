@@ -13,10 +13,9 @@ import TransitionScreen from "@/app/_components/TransitionScreen";
 export default function RecommendPage() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { spaceData, isLoading, error } = useSurveyRecommendation();
+  const { spaceData, isLoading, isError } = useSurveyRecommendation();
 
   if (isLoading) return <TransitionScreen type="toRecommend" />;
-  if (error) return <div>{error}</div>; // 에러 페이지 시안 완성되면 변경
 
   return (
     <>
@@ -29,7 +28,7 @@ export default function RecommendPage() {
         <div className="pointer-events-none relative z-10">
           <div className="flex h-screen flex-col sm:flex-row">
             <NavBar />
-            <RecommendationPanel spaceData={spaceData} />
+            <RecommendationPanel spaceData={spaceData} isError={isError} />
           </div>
           <div className="pointer-events-auto fixed top-14 right-4 flex gap-2 sm:top-5 sm:right-5 sm:gap-5">
             <Button

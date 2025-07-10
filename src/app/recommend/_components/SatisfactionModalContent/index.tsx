@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSatisfactionSubmit } from "./hooks/useSatisfactionSubmit";
 import SatisfactionForm from "./SatisfactionForm";
 import Button from "@/components/Button";
-import { useRouter } from "next/navigation";
+import ErrorScreen from "@/components/ErrorScreen";
 
 export default function SatisfactionModalContent({
   onClose,
@@ -11,12 +11,7 @@ export default function SatisfactionModalContent({
 }) {
   const [satisfactionScores, setSatisfactionScores] = useState([0, 0, 0]);
 
-  const { handleSubmit, isLoading, error } = useSatisfactionSubmit();
-
-  const router = useRouter();
-
-  if (isLoading) return <div>Loading</div>; // 로딩 페이지 시안 완성되면 변경
-  if (error) return <div>{error}</div>; // 에러 페이지 시안 완성되면 변경
+  const { handleSubmit, isLoading, isError } = useSatisfactionSubmit(onClose);
 
   return (
     <div className="flex h-full flex-col gap-8 sm:gap-16">
@@ -28,33 +23,35 @@ export default function SatisfactionModalContent({
           작은 의견 하나가 더 나은 새길을 만드는 데 큰 힘이 돼요 :)
         </p>
       </div>
-      <div className="flex flex-1 flex-col gap-10 overflow-y-auto sm:gap-12">
-        <SatisfactionForm
-          scores={satisfactionScores}
-          setScores={setSatisfactionScores}
-        />
-      </div>
-      <div className="flex shrink-0 justify-center gap-3">
-        <Button
-          color="gray"
-          onClick={onClose}
-          className="text-body-large h-[62px] w-full max-w-[150px] rounded-xl sm:w-[150px]"
-        >
-          다음에 하기
-        </Button>
-        <Button
-          color="blue"
-          onClick={() => {
-            handleSubmit(satisfactionScores);
-            onClose();
-            router.push("/submit-success");
-          }}
-          className="text-body-large h-[62px] w-full max-w-[150px] rounded-xl sm:w-[150px]"
-          disabled={satisfactionScores.includes(0)}
-        >
-          보내기
-        </Button>
-      </div>
+      {isError ? (
+        <ErrorScreen />
+      ) : (
+        <>
+          <div className="flex flex-1 flex-col gap-10 overflow-y-auto sm:gap-12">
+            <SatisfactionForm
+              scores={satisfactionScores}
+              setScores={setSatisfactionScores}
+            />
+          </div>
+          <div className="flex shrink-0 justify-center gap-3">
+            <Button
+              color="gray"
+              onClick={onClose}
+              className="text-body-large h-[62px] w-full max-w-[150px] rounded-xl sm:w-[150px]"
+            >
+              다음에 하기
+            </Button>
+            <Button
+              color="blue"
+              onClick={() => handleSubmit(satisfactionScores)}
+              className="text-body-large h-[62px] w-full max-w-[150px] rounded-xl sm:w-[150px]"
+              disabled={isLoading || satisfactionScores.includes(0)}
+            >
+              보내기
+            </Button>
+          </div>
+        </>
+      )}
     </div>
   );
 }
