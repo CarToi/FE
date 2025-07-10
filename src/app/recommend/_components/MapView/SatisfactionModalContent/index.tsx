@@ -1,8 +1,7 @@
-import Button from "@/components/Button";
-import SatisfactionForm from "./SatisfactionForm";
 import { useState } from "react";
-import { updateSatisfactionScore } from "@/lib/apis/survey";
-import { UpdateRequest } from "@/lib/type";
+import { useSatisfactionSubmit } from "./hooks/useSatisfactionSubmit";
+import SatisfactionForm from "./SatisfactionForm";
+import Button from "@/components/Button";
 
 export default function SatisfactionModalContent({
   onClose,
@@ -10,31 +9,11 @@ export default function SatisfactionModalContent({
   onClose: () => void;
 }) {
   const [satisfactionScores, setSatisfactionScores] = useState([0, 0, 0]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState<null | string>(null);
 
-  const userId = localStorage.getItem("userId") || "";
-
-  const payload: UpdateRequest = {
-    clientId: userId,
-    satisfactions: satisfactionScores,
-  };
-
-  const handleSubmit = async () => {
-    setIsLoading(true);
-    setError(null);
-
-    try {
-      await updateSatisfactionScore(payload);
-      setSatisfactionScores([0, 0, 0]);
-      onClose();
-    } catch (err) {
-      console.error(err);
-      setError("만족도 정보를 전송하는 데 실패했어요.");
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const { handleSubmit, isLoading, error } = useSatisfactionSubmit(() => {
+    setSatisfactionScores([0, 0, 0]);
+    onClose();
+  });
 
   if (isLoading) return <div>Loading</div>; // 로딩 페이지 시안 완성되면 변경
   if (error) return <div>{error}</div>; // 에러 페이지 시안 완성되면 변경
@@ -65,7 +44,7 @@ export default function SatisfactionModalContent({
         </Button>
         <Button
           color="blue"
-          onClick={handleSubmit}
+          onClick={() => handleSubmit(satisfactionScores)}
           className="text-body-large h-[62px] w-full max-w-[150px] rounded-xl sm:w-[150px]"
           disabled={false}
         >
