@@ -1,5 +1,5 @@
-import CancelButton from "./CancelButton";
-import SubmitButton from "./SubmitButton";
+import Button from "@/components/Button";
+import SatisfactionForm from "./SatisfactionForm";
 
 export default function SatisfactionModalContent({
   onClose,
@@ -16,10 +16,25 @@ export default function SatisfactionModalContent({
           작은 의견 하나가 더 나은 새길을 만드는 데 큰 힘이 돼요 :)
         </p>
       </div>
-      <div className="flex-1 overflow-y-auto"></div>
+      <div className="flex flex-1 flex-col gap-10 overflow-y-auto sm:gap-12">
+        <SatisfactionForm />
+      </div>
       <div className="flex shrink-0 justify-center gap-3">
-        <CancelButton onClose={onClose} />
-        <SubmitButton onClose={onClose} />
+        <Button
+          color="gray"
+          onClick={onClose}
+          className="text-body-large h-[62px] w-full max-w-[150px] rounded-xl sm:w-[150px]"
+        >
+          다음에 하기
+        </Button>
+        <Button
+          color="blue"
+          onClick={onClose}
+          className="text-body-large h-[62px] w-full max-w-[150px] rounded-xl sm:w-[150px]"
+          disabled={false}
+        >
+          보내기
+        </Button>
       </div>
     </div>
   );
