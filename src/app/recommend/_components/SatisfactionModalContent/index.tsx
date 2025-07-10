@@ -50,7 +50,7 @@ export default function SatisfactionModalContent({
             router.push("/submit-success");
           }}
           className="text-body-large h-[62px] w-full max-w-[150px] rounded-xl sm:w-[150px]"
-          disabled={false}
+          disabled={satisfactionScores.includes(0)}
         >
           보내기
         </Button>
