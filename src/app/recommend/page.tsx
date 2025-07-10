@@ -5,19 +5,17 @@ import { useSurveyRecommendation } from "./_hooks/useSurveyRecommendation";
 import NavBar from "./_components/NavBar";
 import RecommendationPanel from "./_components/RecommendationPanel";
 import MapView from "./_components/MapView";
-import RetrySurveyButton from "./_components/RetrySurveyButton";
-import SatisfactionModalButton from "./_components/SatisfactionModalButton";
-import TransitionScreen from "@/app/_components/TransitionScreen";
+import Button from "@/components/Button";
 import Modal from "@/components/Modal";
-import SatisfactionModalContent from "./_components/MapView/SatisfactionModalContent";
+import SatisfactionModalContent from "./_components/SatisfactionModalContent";
+import TransitionScreen from "@/app/_components/TransitionScreen";
 
 export default function RecommendPage() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { spaceData, isLoading, error } = useSurveyRecommendation();
+  const { spaceData, isLoading, isError } = useSurveyRecommendation();
 
   if (isLoading) return <TransitionScreen type="toRecommend" />;
-  if (error) return <div>{error}</div>; // 에러 페이지 시안 완성되면 변경
 
   return (
     <>
@@ -30,11 +28,16 @@ export default function RecommendPage() {
         <div className="pointer-events-none relative z-10">
           <div className="flex h-screen flex-col sm:flex-row">
             <NavBar />
-            <RecommendationPanel spaceData={spaceData} />
+            <RecommendationPanel spaceData={spaceData} isError={isError} />
           </div>
           <div className="pointer-events-auto fixed top-14 right-4 flex gap-2 sm:top-5 sm:right-5 sm:gap-5">
-            <RetrySurveyButton />
-            <SatisfactionModalButton onOpen={() => setIsOpen(true)} />
+            <Button
+              color="blue"
+              onClick={() => setIsOpen(true)}
+              className="text-body-small sm:text-body-large h-[37px] w-[107px] rounded-md sm:h-[62px] sm:w-[149px] sm:rounded-xl"
+            >
+              서비스 만족도
+            </Button>
           </div>
         </div>
       </div>

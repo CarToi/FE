@@ -10,11 +10,16 @@ export default function SpaceCard({
   position,
   category,
   image,
-  // url,
+  url,
 }: RecommendationResponse) {
   const city = getCity(position);
   return (
-    <div className="flex h-full w-full gap-2 sm:flex-col sm:gap-3">
+    <button
+      onClick={() => {
+        window.open(url, "_blank");
+      }}
+      className="flex h-full w-full cursor-pointer gap-2 hover:bg-[#D1D4DC] sm:flex-col sm:gap-3"
+    >
       <Image
         className="size-40 rounded-[6px] object-cover sm:h-[180px] sm:w-full"
         src={image || Temp}
@@ -46,6 +51,6 @@ export default function SpaceCard({
           )}
         </div>
       </div>
-    </div>
+    </button>
   );
 }

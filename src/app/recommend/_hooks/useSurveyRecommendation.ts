@@ -5,11 +5,11 @@ import { RecommendationRequest, RecommendationResponse } from "@/lib/type";
 export function useSurveyRecommendation() {
   const [spaceData, setSpaceData] = useState<RecommendationResponse[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<null | string>(null);
+  const [isError, setIsError] = useState(false);
 
   const fetchData = async () => {
     setIsLoading(true);
-    setError(null);
+    setIsError(false);
 
     const clientId = localStorage.getItem("userId") || "";
     const onboarding = JSON.parse(
@@ -31,7 +31,7 @@ export function useSurveyRecommendation() {
       setSpaceData(res);
     } catch (err) {
       console.error(err);
-      setError("추천 정보를 불러오는 데 실패했어요.");
+      setIsError(true);
     } finally {
       setIsLoading(false);
     }
@@ -41,5 +41,5 @@ export function useSurveyRecommendation() {
     fetchData();
   }, []);
 
-  return { spaceData, isLoading, error };
+  return { spaceData, isLoading, isError };
 }
