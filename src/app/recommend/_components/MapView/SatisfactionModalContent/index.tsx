@@ -1,11 +1,14 @@
 import Button from "@/components/Button";
 import SatisfactionForm from "./SatisfactionForm";
+import { useState } from "react";
 
 export default function SatisfactionModalContent({
   onClose,
 }: {
   onClose: () => void;
 }) {
+  const [satisfactionScores, setSatisfactionScores] = useState([0, 0, 0]);
+
   return (
     <div className="flex h-full flex-col gap-8 sm:gap-16">
       <div className="flex shrink-0 flex-col gap-1 sm:gap-2.5">
@@ -17,7 +20,10 @@ export default function SatisfactionModalContent({
         </p>
       </div>
       <div className="flex flex-1 flex-col gap-10 overflow-y-auto sm:gap-12">
-        <SatisfactionForm />
+        <SatisfactionForm
+          scores={satisfactionScores}
+          setScores={setSatisfactionScores}
+        />
       </div>
       <div className="flex shrink-0 justify-center gap-3">
         <Button
