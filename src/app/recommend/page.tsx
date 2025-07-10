@@ -7,7 +7,7 @@ import RecommendationPanel from "./_components/RecommendationPanel";
 import MapView from "./_components/MapView";
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
-import SatisfactionModalContent from "./_components/MapView/SatisfactionModalContent";
+import SatisfactionModalContent from "./_components/SatisfactionModalContent";
 import TransitionScreen from "@/app/_components/TransitionScreen";
 
 export default function RecommendPage() {
