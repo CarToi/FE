@@ -5,11 +5,10 @@ import { useSurveyRecommendation } from "./_hooks/useSurveyRecommendation";
 import NavBar from "./_components/NavBar";
 import RecommendationPanel from "./_components/RecommendationPanel";
 import MapView from "./_components/MapView";
-import RetrySurveyButton from "./_components/RetrySurveyButton";
-import SatisfactionModalButton from "./_components/SatisfactionModalButton";
-import TransitionScreen from "@/app/_components/TransitionScreen";
+import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import SatisfactionModalContent from "./_components/MapView/SatisfactionModalContent";
+import TransitionScreen from "@/app/_components/TransitionScreen";
 
 export default function RecommendPage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -33,8 +32,13 @@ export default function RecommendPage() {
             <RecommendationPanel spaceData={spaceData} />
           </div>
           <div className="pointer-events-auto fixed top-14 right-4 flex gap-2 sm:top-5 sm:right-5 sm:gap-5">
-            <RetrySurveyButton />
-            <SatisfactionModalButton onOpen={() => setIsOpen(true)} />
+            <Button
+              color="blue"
+              onClick={() => setIsOpen(true)}
+              className="text-body-small sm:text-body-large h-[37px] w-[107px] rounded-md sm:h-[62px] sm:w-[149px] sm:rounded-xl"
+            >
+              서비스 만족도
+            </Button>
           </div>
         </div>
       </div>
