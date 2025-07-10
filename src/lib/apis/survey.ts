@@ -4,7 +4,7 @@ import { RecommendationRequest, UpdateRequest } from "../type";
 // 사용자 설문 결과 요청
 export async function fetchRecommendation(payload: RecommendationRequest) {
   try {
-    const res = await axios.post("/survey/recommendatio", payload);
+    const res = await axios.post("/survey/recommendation", payload);
     return res.data;
   } catch (err) {
     console.error("추천 API 실패:", err);
