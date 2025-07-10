@@ -2,7 +2,7 @@ import { useState } from "react";
 import { UpdateRequest } from "@/lib/type";
 import { updateSatisfactionScore } from "@/lib/apis/survey";
 
-export function useSatisfactionSubmit(onClose: () => void) {
+export function useSatisfactionSubmit() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<null | string>(null);
 
@@ -19,7 +19,6 @@ export function useSatisfactionSubmit(onClose: () => void) {
 
     try {
       await updateSatisfactionScore(payload);
-      onClose();
     } catch (err) {
       console.error(err);
       setError("만족도 정보를 전송하는 데 실패했어요.");

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useSatisfactionSubmit } from "./hooks/useSatisfactionSubmit";
 import SatisfactionForm from "./SatisfactionForm";
 import Button from "@/components/Button";
+import { useRouter } from "next/navigation";
 
 export default function SatisfactionModalContent({
   onClose,
@@ -10,10 +11,9 @@ export default function SatisfactionModalContent({
 }) {
   const [satisfactionScores, setSatisfactionScores] = useState([0, 0, 0]);
 
-  const { handleSubmit, isLoading, error } = useSatisfactionSubmit(() => {
-    setSatisfactionScores([0, 0, 0]);
-    onClose();
-  });
+  const { handleSubmit, isLoading, error } = useSatisfactionSubmit();
+
+  const router = useRouter();
 
   if (isLoading) return <div>Loading</div>; // 로딩 페이지 시안 완성되면 변경
   if (error) return <div>{error}</div>; // 에러 페이지 시안 완성되면 변경
@@ -44,7 +44,11 @@ export default function SatisfactionModalContent({
         </Button>
         <Button
           color="blue"
-          onClick={() => handleSubmit(satisfactionScores)}
+          onClick={() => {
+            handleSubmit(satisfactionScores);
+            onClose();
+            router.push("/submit-success");
+          }}
           className="text-body-large h-[62px] w-full max-w-[150px] rounded-xl sm:w-[150px]"
           disabled={false}
         >
