@@ -7,14 +7,17 @@ export function useSurveyRecommendation() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<null | string>(null);
 
-  useEffect(() => {
-    const userId = localStorage.getItem("userId") || "";
+  const fetchData = async () => {
+    setIsLoading(true);
+    setError(null);
+
+    const clientId = localStorage.getItem("userId") || "";
     const onboarding = JSON.parse(
       localStorage.getItem("onboardingAnswers") ?? "[]"
     );
 
     const payload: RecommendationRequest = {
-      clientId: userId,
+      clientId,
       age: Number(onboarding[0]?.substr(0, 2) || 0),
       gender: onboarding[1],
       resident: onboarding[2],
@@ -23,20 +26,19 @@ export function useSurveyRecommendation() {
       mood: onboarding[6],
     };
 
-    setIsLoading(true);
-    setError(null);
+    try {
+      const res = await fetchRecommendation(payload);
+      setSpaceData(res);
+    } catch (err) {
+      console.error(err);
+      setError("추천 정보를 불러오는 데 실패했어요.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
-    fetchRecommendation(payload)
-      .then((data) => {
-        setSpaceData(data);
-      })
-      .catch((err) => {
-        console.error(err);
-        setError("추천 정보를 불러오는 데 실패했어요.");
-      })
-      .finally(() => {
-        setIsLoading(false);
-      });
+  useEffect(() => {
+    fetchData();
   }, []);
 
   return { spaceData, isLoading, error };

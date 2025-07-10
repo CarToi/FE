@@ -10,10 +10,10 @@ export function useSatisfactionSubmit(onClose: () => void) {
     setIsLoading(true);
     setError(null);
 
-    const userId = localStorage.getItem("userId") || "";
+    const clientId = localStorage.getItem("userId") || "";
 
     const payload: UpdateRequest = {
-      clientId: userId,
+      clientId,
       satisfactions,
     };
 
