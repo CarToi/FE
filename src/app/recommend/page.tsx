@@ -9,6 +9,7 @@ import RetrySurveyButton from "./_components/RetrySurveyButton";
 import SatisfactionModalButton from "./_components/SatisfactionModalButton";
 import TransitionScreen from "@/app/_components/TransitionScreen";
 import Modal from "@/components/Modal";
+import SatisfactionModalContent from "./_components/MapView/SatisfactionModalContent";
 
 export default function RecommendPage() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +39,7 @@ export default function RecommendPage() {
         </div>
       </div>
       <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-        <div>Modal Content</div>
+        <SatisfactionModalContent onClose={() => setIsOpen(false)} />
       </Modal>
     </>
   );
