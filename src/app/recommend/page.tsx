@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useSurveyRecommendation } from "./_hooks/useSurveyRecommendation";
+import { useGetRecommendation } from "./_hooks/useGetRecommendation";
 import NavBar from "./_components/NavBar";
 import RecommendationPanel from "./_components/RecommendationPanel";
 import MapView from "./_components/MapView";
@@ -13,7 +13,7 @@ import TransitionScreen from "@/app/_components/TransitionScreen";
 export default function RecommendPage() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const { spaceData, isLoading, isError } = useSurveyRecommendation();
+  const { spaceData, isLoading, isError } = useGetRecommendation();
 
   if (isLoading) return <TransitionScreen type="toRecommend" />;
 

@@ -4,6 +4,9 @@ import { useSurvey } from "./hooks/useSurvey";
 import ProgressBar from "@/app/_components/SurveyScreen/ProgressBar";
 import SurveyOption from "./SurveyOption";
 import Button from "@/components/Button";
+import clsx from "clsx";
+import { usePostSurvey } from "./hooks/usePostSurvey";
+import ErrorScreen from "@/components/ErrorScreen";
 
 interface SurveyScreenProps {
   type: "onboarding" | "todayMood";
@@ -20,6 +23,13 @@ export default function SurveyScreen({ type, routing }: SurveyScreenProps) {
     handlePrevClick,
     handleNextClick,
   } = useSurvey({ type, routing });
+
+  const { handleSubmit, isLoading, isError } = usePostSurvey();
+
+  const isLastQuestion =
+    type === "todayMood" && currentQuestion === questions.length - 1;
+
+  if (isError) return <ErrorScreen />;
 
   return (
     <div className="flex h-screen w-full flex-col items-center justify-between">
@@ -55,11 +65,14 @@ export default function SurveyScreen({ type, routing }: SurveyScreenProps) {
           )}
           <Button
             color="blue"
-            onClick={handleNextClick}
-            className="text-body-large h-[62px] w-[120px] rounded-xl"
-            disabled={!answers[currentQuestion]}
+            onClick={isLastQuestion ? handleSubmit : handleNextClick}
+            className={clsx(
+              "text-body-large h-[62px] rounded-xl",
+              isLastQuestion ? "w-[166px]" : "w-[120px]"
+            )}
+            disabled={!answers[currentQuestion] || !isLoading}
           >
-            다음
+            {isLastQuestion ? "추천길 보러가기" : "다음"}
           </Button>
         </div>
       </div>
