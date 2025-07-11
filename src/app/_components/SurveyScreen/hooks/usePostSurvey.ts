@@ -4,7 +4,7 @@ import { postSurvey } from "@/lib/apis/survey";
 import { SurveyRequest } from "@/lib/type";
 
 export function usePostSurvey() {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
   const router = useRouter();
@@ -34,8 +34,6 @@ export function usePostSurvey() {
     } catch (err) {
       console.error(err);
       setIsError(true);
-    } finally {
-      setIsLoading(false);
     }
   };
 

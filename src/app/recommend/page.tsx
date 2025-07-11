@@ -8,14 +8,13 @@ import MapView from "./_components/MapView";
 import Button from "@/components/Button";
 import Modal from "@/components/Modal";
 import SatisfactionModalContent from "./_components/SatisfactionModalContent";
-import TransitionScreen from "@/app/_components/TransitionScreen";
 
 export default function RecommendPage() {
   const [isOpen, setIsOpen] = useState(false);
 
   const { spaceData, isLoading, isError } = useGetRecommendation();
 
-  if (isLoading) return <TransitionScreen type="toRecommend" />;
+  if (isLoading) return <div>바꿔</div>;
 
   return (
     <>

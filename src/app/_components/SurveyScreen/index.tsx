@@ -6,6 +6,7 @@ import clsx from "clsx";
 import ProgressBar from "@/app/_components/SurveyScreen/ProgressBar";
 import SurveyOption from "./SurveyOption";
 import Button from "@/components/Button";
+import TransitionScreen from "@/app/_components/TransitionScreen";
 import ErrorScreen from "@/components/ErrorScreen";
 
 interface SurveyScreenProps {
@@ -29,6 +30,9 @@ export default function SurveyScreen({ type, routing }: SurveyScreenProps) {
   const isLastQuestion =
     type === "todayMood" && currentQuestion === questions.length - 1;
 
+  if (isLoading && isLastQuestion) {
+    return <TransitionScreen type="toRecommend" />;
+  }
   if (isError) return <ErrorScreen />;
 
   return (
@@ -70,7 +74,7 @@ export default function SurveyScreen({ type, routing }: SurveyScreenProps) {
               "text-body-large h-[62px] rounded-xl",
               isLastQuestion ? "w-[166px]" : "w-[120px]"
             )}
-            disabled={!answers[currentQuestion] || !isLoading}
+            disabled={!answers[currentQuestion]}
           >
             {isLastQuestion ? "추천길 보러가기" : "다음"}
           </Button>

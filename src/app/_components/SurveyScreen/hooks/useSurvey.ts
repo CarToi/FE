@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { surveyData } from "@/constants/surveyData";
 
 interface UseSurveyProps {
@@ -8,8 +7,6 @@ interface UseSurveyProps {
 }
 
 export function useSurvey({ type, routing }: UseSurveyProps) {
-  const router = useRouter();
-
   const questions = surveyData[type];
   const storageKey = `${type}Answers`;
 
@@ -36,8 +33,6 @@ export function useSurvey({ type, routing }: UseSurveyProps) {
     if (currentQuestion === questions.length - 1) {
       if (routing) {
         routing("ToMoodTransition");
-      } else {
-        router.push("/recommend");
       }
     } else {
       setCurrentQuestion((prev) => prev + 1);
