@@ -2,7 +2,7 @@ import "./globals.css";
 
 export const metadata = {
   title: "새길",
-  description: "새만금 새길",
+  description: "하루 끝 당신의, 새길",
 };
 
 export default function RootLayout({
