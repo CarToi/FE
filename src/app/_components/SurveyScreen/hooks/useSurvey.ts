@@ -19,11 +19,7 @@ export function useSurvey({ type, routing }: UseSurveyProps) {
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
 
-  const progress =
-    ((questions.length -
-      answers.filter((element: string) => element === "").length) /
-      questions.length) *
-    100;
+  const progress = ((currentQuestion + 1) / questions.length) * 100;
 
   const handleAnswerClick = (answer: string) => {
     const updatedAnswers = [...answers];
