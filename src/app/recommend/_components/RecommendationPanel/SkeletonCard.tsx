@@ -1,15 +1,13 @@
-import Skeleton from "@/components/Loading/Skeleton";
-
 export default function SkeletonCard() {
   return (
-    <div className="flex h-full w-full animate-pulse gap-2 sm:flex-col sm:gap-3">
-      <div className="size-40 rounded-[6px] sm:h-[180px] sm:w-full" />
+    <div className="flex h-full w-full gap-2 sm:flex-col sm:gap-3">
+      <div className="size-40 shrink-0 animate-pulse rounded-md bg-slate-200 sm:h-[180px] sm:w-full" />
       <div className="flex flex-1 flex-col gap-2">
-        <Skeleton width="80%" height="1rem" />
-        <Skeleton width="60%" height="0.875rem" />
-        <div className="mt-2 flex gap-2">
-          <Skeleton width="60px" height="1.5rem" className="rounded-[6px]" />
-          <Skeleton width="40px" height="1.5rem" className="rounded-[6px]" />
+        <div className="h-[26px] w-4/5 animate-pulse rounded-md bg-slate-200" />
+        <div className="h-[20px] w-3/5 animate-pulse rounded-md bg-slate-200" />
+        <div className="mt-1 flex gap-2">
+          <div className="h-[28px] w-12 animate-pulse rounded-md bg-slate-200" />
+          <div className="h-[28px] w-12 animate-pulse rounded-md bg-slate-200" />
         </div>
       </div>
     </div>
