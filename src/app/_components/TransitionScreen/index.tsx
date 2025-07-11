@@ -19,7 +19,7 @@ export default function TransitionScreen({
     if (routing) {
       setTimeout(() => {
         routing("TodayMoodSurvey");
-      }, 1000);
+      }, 1800);
     }
   }, [transitionContent, routing]);
 
