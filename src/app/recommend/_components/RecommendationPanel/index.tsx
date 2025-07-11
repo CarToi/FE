@@ -1,12 +1,15 @@
 import { RecommendationResponse } from "@/lib/type";
 import SpaceCard from "./SpaceCard";
 import ErrorScreen from "@/components/ErrorScreen";
+import SkeletonCard from "./SkeletonCard";
 
 export default function RecommendationPanel({
   spaceData,
+  isLoading,
   isError,
 }: {
   spaceData: RecommendationResponse[];
+  isLoading: boolean;
   isError: boolean;
 }) {
   return (
@@ -26,6 +29,12 @@ export default function RecommendationPanel({
 
         {isError ? (
           <ErrorScreen />
+        ) : isLoading ? (
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <SkeletonCard key={index} />
+            ))}
+          </div>
         ) : (
           <div className="scrollbar-overlay grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-5 sm:overflow-x-auto">
             {spaceData.map((space, index) => (
