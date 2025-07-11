@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { UpdateRequest } from "@/lib/type";
-import { updateSatisfactionScore } from "@/lib/apis/survey";
+import { SatisfactionRequest } from "@/lib/type";
+import { patchSatisfaction } from "@/lib/apis/survey";
 
-export function useSatisfactionSubmit(onClose: () => void) {
+export function usePatchSatisfaction(onClose: () => void) {
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
 
@@ -15,13 +15,13 @@ export function useSatisfactionSubmit(onClose: () => void) {
 
     const clientId = localStorage.getItem("userId") || "";
 
-    const payload: UpdateRequest = {
+    const payload: SatisfactionRequest = {
       clientId,
       satisfactions,
     };
 
     try {
-      await updateSatisfactionScore(payload);
+      await patchSatisfaction(payload);
       onClose();
       router.push("/submit-success");
     } catch (err) {

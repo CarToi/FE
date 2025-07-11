@@ -1,4 +1,4 @@
-export interface RecommendationRequest {
+export interface SurveyRequest {
   clientId: string;
   age: number;
   gender: "남자" | "여자";
@@ -20,7 +20,7 @@ export interface RecommendationResponse {
   } | null;
 }
 
-export interface UpdateRequest {
+export interface SatisfactionRequest {
   clientId: string;
   satisfactions: number[];
 }

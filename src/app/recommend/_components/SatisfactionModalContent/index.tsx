@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useSatisfactionSubmit } from "./hooks/useSatisfactionSubmit";
+import { usePatchSatisfaction } from "./hooks/usePatchSatisfaction";
 import SatisfactionForm from "./SatisfactionForm";
 import Button from "@/components/Button";
 import ErrorScreen from "@/components/ErrorScreen";
@@ -11,7 +11,7 @@ export default function SatisfactionModalContent({
 }) {
   const [satisfactionScores, setSatisfactionScores] = useState([0, 0, 0]);
 
-  const { handleSubmit, isLoading, isError } = useSatisfactionSubmit(onClose);
+  const { handleSubmit, isLoading, isError } = usePatchSatisfaction(onClose);
 
   return (
     <div className="flex h-full flex-col gap-8 sm:gap-16">
