@@ -1,12 +1,13 @@
 "use client";
 
+import { useState } from "react";
 import { Map, MapMarker, Polyline, useKakaoLoader } from "react-kakao-maps-sdk";
 import { RecommendationResponse } from "@/lib/type";
 import { COORDINATE } from "@/constants/spaceData";
 import { Coordinate, getMidpoint } from "@/utils/getMidpoint";
 import { getDestination } from "@/utils/getDestination";
 import RecommendationMarker from "./RecommendationMarker";
-import { useState } from "react";
+import ErrorScreen from "@/components/ErrorScreen";
 
 export default function MapView({
   spaceData,
@@ -18,8 +19,9 @@ export default function MapView({
   });
   const [selectedSpace, setSelectedSpace] = useState<Coordinate | null>(null);
 
-  if (loading) return <div>Loading</div>;
-  if (error) return <div>Error</div>;
+  if (loading)
+    return <div className="h-full w-full animate-pulse bg-slate-200" />;
+  if (error) return <ErrorScreen />;
 
   const origin = COORDINATE.SAEMANGEUM;
   const destination = getDestination();
