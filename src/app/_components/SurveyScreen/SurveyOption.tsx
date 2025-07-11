@@ -16,7 +16,7 @@ export default function SurveyOption({
     <div
       onClick={onClick}
       className={clsx(
-        "flex cursor-pointer items-center justify-between rounded-[12px] border-[2px] py-[16px] pr-[40px] pl-[24px] transition-colors duration-100",
+        "flex cursor-pointer items-center justify-between rounded-xl border-2 py-4 pr-10 pl-6 transition-colors duration-100",
         isSelected
           ? "border-[#577DD1] bg-[#F7F9FD]"
           : "border-[#F6F7F8] bg-[#F6F7F8] text-[#B3B9C6] hover:bg-[#F7F9FD] hover:text-[#3560C0]"

@@ -36,28 +36,30 @@ export default function SurveyScreen({ type, routing }: SurveyScreenProps) {
   if (isError) return <ErrorScreen />;
 
   return (
-    <div className="flex h-screen w-full flex-col items-center justify-between">
+    <div className="flex h-screen w-full flex-col items-center">
       <ProgressBar progress={progress} />
-      <div className="flex w-[700px] flex-col justify-center gap-[64px]">
-        <div className="flex flex-col justify-between gap-[12px]">
-          <h2 className="text-heading-small text-[#1F2229]">
-            {questions[currentQuestion].title}
-          </h2>
-          <p className="text-title-small text-[#79839A]">
-            {questions[currentQuestion].contents}
-          </p>
+      <div className="items my-[50px] flex h-full w-full max-w-[700px] flex-col justify-between gap-10 px-5 sm:justify-center sm:gap-16 sm:p-0">
+        <div className="flex flex-col gap-10 sm:gap-16">
+          <div className="flex flex-col gap-1 sm:gap-3">
+            <h2 className="text-title-medium sm:text-heading-small text-[#1F2229]">
+              {questions[currentQuestion].title}
+            </h2>
+            <p className="text-title-small text-[#79839A]">
+              {questions[currentQuestion].contents}
+            </p>
+          </div>
+          <div className="flex w-full max-w-[700px] flex-col gap-3">
+            {questions[currentQuestion].items.map((item, index) => (
+              <SurveyOption
+                key={index}
+                text={item}
+                isSelected={item === answers[currentQuestion]}
+                onClick={() => handleAnswerClick(item)}
+              />
+            ))}
+          </div>
         </div>
-        <div className="flex w-[700px] flex-col justify-between gap-[12px]">
-          {questions[currentQuestion].items.map((item, index) => (
-            <SurveyOption
-              key={index}
-              text={item}
-              isSelected={item === answers[currentQuestion]}
-              onClick={() => handleAnswerClick(item)}
-            />
-          ))}
-        </div>
-        <div className="flex items-center gap-[12px] self-end">
+        <div className="flex justify-end gap-3">
           {currentQuestion > 0 && (
             <Button
               color="gray"
@@ -80,7 +82,6 @@ export default function SurveyScreen({ type, routing }: SurveyScreenProps) {
           </Button>
         </div>
       </div>
-      <div></div>
     </div>
   );
 }
