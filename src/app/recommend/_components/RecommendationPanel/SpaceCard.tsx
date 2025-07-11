@@ -18,7 +18,7 @@ export default function SpaceCard({
       onClick={() => {
         window.open(url, "_blank");
       }}
-      className="flex h-full w-full cursor-pointer gap-2 hover:bg-[#D1D4DC] sm:flex-col sm:gap-3"
+      className="flex h-full w-full cursor-pointer gap-2 sm:flex-col sm:gap-3"
     >
       <Image
         className="size-40 rounded-[6px] object-cover sm:h-[180px] sm:w-full"
