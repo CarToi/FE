@@ -1,11 +1,11 @@
 "use client";
 
 import { useSurvey } from "./hooks/useSurvey";
+import { usePostSurvey } from "./hooks/usePostSurvey";
+import clsx from "clsx";
 import ProgressBar from "@/app/_components/SurveyScreen/ProgressBar";
 import SurveyOption from "./SurveyOption";
 import Button from "@/components/Button";
-import clsx from "clsx";
-import { usePostSurvey } from "./hooks/usePostSurvey";
 import ErrorScreen from "@/components/ErrorScreen";
 
 interface SurveyScreenProps {
