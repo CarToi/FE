@@ -1,5 +1,13 @@
 @import "tailwindcss";
 
+@media (hover: hover) {
+  .hover-underline:hover {
+    text-decoration: underline;
+  }
+}
+
+@custom-variant hover (&:hover);
+
 body {
   font-family:
     "Pretendard Variable",
@@ -18,8 +26,6 @@ body {
     "Segoe UI Symbol",
     sans-serif;
 }
-
-@import "tailwindcss";
 
 @theme {
   /* Display */
