@@ -1,54 +1,127 @@
-## ✅ 컨벤션
+# 새길 FE Repository
+<!--
+  프로젝트의 새길 리드미 타이틀입니다.
+  FE: 프론트엔드 전용 README
+  BE: 백엔드 전용 README
+  적절히 맞춰서 기재해주세요
+-->
 
-### 네이밍 컨벤션
+## 1. 소개
+<!--
+  프로젝트 개요를 서술합니다.
+  예: 서비스 목적, 주요 기능 요약, 사용 기술 스택, 참여 인원 등
+-->
 
-- 상수: `SNAKE_CASE`
-- 컴포넌트, interface 타입: `PascalCase`
-- 변수, 함수: `camelCase`
-- 폴더명: `kebab-case`
-- 파일명
-  - 이미지 파일(public 폴더): `_`(언더바)로 구분
-  - 이미지 import 시: `PascalCase`
-  - 페이지 및 API 파일 (app, api 폴더): `kebab-case`
-  - 컴포넌트 파일 (components 폴더): `PascalCase`
-  - 유틸리티 파일 (lib, utils, hooks 폴더): `camelCase`
+>**새길**은 2025 새만금 공공데이터 공모전 신규데이터 생산 부문에 참가한 웹 개발 프로젝트 출품작입니다.\
+>사용자 맞춤형 문화 콘텐츠를 추천하고, 결과를 지도에 시각화하는 설문조사 데이터 수집 플랫폼입니다.
 
-### 타입
+<br />
 
-- **feat** : 새로운 기능 추가
-- **fix** : 버그 수정
-- **docs** : 문서 수정
-- **style** : 코드 스타일 변경(코드 포맷팅, 세미콜론 누락, 코드 변경이 없는 경우 등)
-- **design**: 사용자 UI 디자인 변경(CSS 등)
-- **refactor** : 코드 리팩토링
-- **test** : 테스트 코드 작성
-- **build**: 빌드 파일 수정
-- **ci**: CI 설정 파일 수정
-- **perf**: 성능 개선
-- **chore**: 빌드 수정, 패키지 매니저 설정, 운영 코드 변경이 없는 경우 등
-- **rename** : 파일 혹은 폴더명을 수정한 경우
-- **remove**: 파일 삭제만 한 경우
+- **🌐 배포 링크** : [설문조사 참여하기](https://saegil.vercel.app/)
+- **🛠️ 사용 스택** : JavaScript, TypeScript, React, Next.js, Tailwind CSS, Axios, Vercel
+- **👥 참여 인원** : 총 4명 (BE 1, FE 2, UX/UI 1)
+- **⏳ 개발 기간** : 2025.06 ~ 2025.07
 
-### 커밋 메세지
+---
 
+## 2. 수행 역할
+<!--
+  프로젝트에서 구현한 주요 기능을 나열합니다.
+  기능 요약, URL (있다면), 설명 포함해도 좋습니다.
+-->
+
+### (1) 기능 구현
+- 구현 내용
+
+
+## 4. 디렉토리 구조
+<!--
+  주요 폴더 구조를 간략하게 표현합니다.
+  트리 구조 또는 코드 블럭 사용
+-->
+
+<details>
+<summary>펼쳐보기📁</summary>
+
+```bash
+src/
+├─ app/
+│  ├─ _components/
+│  │  ├─ LandingPage/
+│  │  │  └─ index.tsx
+│  │  ├─ SurveyScreen/
+│  │  │  ├─ hooks/
+│  │  │  │  ├─ usePostSurvey.ts
+│  │  │  │  └─ useSurvey.ts
+│  │  │  ├─ index.tsx
+│  │  │  ├─ ProgressBar.jsx
+│  │  │  └─ SurveyOption.tsx
+│  │  └─ TransitionScreen/
+│  │     └─ index.tsx
+│  ├─ recommend/
+│  │  ├─ _components/
+│  │  │  ├─ MapView/
+│  │  │  │  ├─ index.tsx
+│  │  │  │  └─ RecommendationMarker.tsx
+│  │  │  └─ RecommendationPanel/
+│  │  │     ├─ index.tsx
+│  │  │     ├─ SkeletonCard.tsx
+│  │  │     └─ SpaceCard.tsx
+│  │  ├─ SatisfactionModalContent/
+│  │  │  ├─ hooks/
+│  │  │  │  └─ usePatchSatisfaction.ts
+│  │  │  ├─ index.tsx
+│  │  │  └─ SatisfactionForm.tsx
+│  │  ├─ NavBar.tsx
+│  │  ├─ SatisfactionModalButton.tsx
+│  │  ├─ _hooks/
+│  │  │  └─ useGetRecommendation.ts
+│  │  └─ page.tsx
+│  ├─ submit-success/
+│  │  └─ page.tsx
+│  ├─ favicon.ico
+│  ├─ globals.css
+│  ├─ layout.tsx
+│  └─ page.tsx
+├─ assets/
+│  ├─ fonts/
+│  ├─ icons/
+│  ├─ images/
+│  └─ logo/
+├─ components/
+│  ├─ Button/
+│  ├─ ErrorScreen/
+│  └─ Modal/
+├─ constants/
+│  ├─ satisfactionData.ts
+│  ├─ spaceData.ts
+│  ├─ surveyData.ts
+│  └─ transitionData.ts
+├─ lib/
+│  ├─ apis/
+│  │  └─ survey.ts
+│  ├─ axiosInstance.ts
+│  └─ type.ts
+└─ utils/
+   ├─ createNewUser.ts
+   ├─ getCity.ts
+   ├─ getDestination.ts
+   └─ getMidpoint.ts
 ```
-type: 요약
-```
 
-### 브랜치명
+</details>
 
-```
-type/#Issue-Number/Content
-```
+---
 
-### 이슈 제목
+## 5. 기타
+<!--
+  추가적으로 기록할 정보 (예: 향후 계획, 라이센스, 협업 도구 등)
+-->
 
-```
-[type] Content
-```
+- **Notion 문서** : [노션 링크](https://kimd0ngjun.notion.site/200420aa1940809faa85e562a0fb1fbf)
 
-### PR 제목
 
-```
-[type] #Issue-Number Content1 / Content2 ...
-```
+<p align="right">(<a href="#readme-top">🔝 back to top</a>)</p>
+
+[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[Next-url]: https://nextjs.org/
